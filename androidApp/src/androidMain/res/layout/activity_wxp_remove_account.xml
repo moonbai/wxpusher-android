@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/PageBg2"
+    android:background="@color/miuix_theme_color"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="#FF9500" />
+            app:tint="@color/danger_color" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -32,7 +32,7 @@
             android:layout_marginEnd="24dp"
             android:gravity="center"
             android:text="删除账号"
-            android:textColor="@color/text_fit_theme_first"
+            android:textColor="@color/miuix_title_color"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
             android:layout_marginEnd="24dp"
             android:gravity="center"
             android:text="你即将删除账号，删除以后，将无法在再登录，并且数据无法恢复。"
-            android:textColor="@color/text_fit_theme_second"
+            android:textColor="@color/miuix_summary_color"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
             android:background="@drawable/bg_remove_account_input"
             android:padding="16dp"
             android:text="请注意：\n\n• 删除后，账号数据无法找回\n• 手机号将无法再次登录\n• 如账号绑定的微信、苹果账号，也会一并删除\n• 如果你是开发账号，删除后将不能再发送消息\n• 如果你存在未结算的资金，删除后停止结算且无法找回\n• 如你需继续使用服务，需要重新注册新账号\n\n请确认您已了解上述风险，并确定要继续删除账号。"
-            android:textColor="@color/text_fit_theme_first"
+            android:textColor="@color/miuix_title_color"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:singleLine="true"
-            android:textColor="@color/text_fit_theme_first"
+            android:textColor="@color/miuix_title_color"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

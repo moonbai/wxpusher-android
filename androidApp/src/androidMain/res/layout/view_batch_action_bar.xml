@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/colorSurface"
+    android:background="@color/white"
     android:elevation="8dp"
     android:orientation="vertical">
 
@@ -37,14 +37,14 @@
                 android:layout_height="24dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_done"
-                app:tint="?android:attr/textColorPrimary" />
+                app:tint="@color/miuix_dialog_button_2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/message_list_action_mark_read"
-                android:textColor="?android:attr/textColorPrimary"
+                android:textColor="@color/miuix_title_color"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -66,14 +66,14 @@
                 android:layout_height="24dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_mark_as_unread"
-                app:tint="?android:attr/textColorPrimary" />
+                app:tint="@color/miuix_dialog_button_2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/message_list_action_mark_unread"
-                android:textColor="?android:attr/textColorPrimary"
+                android:textColor="@color/miuix_title_color"
                 android:textSize="12sp" />
         </LinearLayout>
 

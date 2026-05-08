@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:indeterminateTint="@color/white" />
+                android:indeterminateTint="@color/miuix_dialog_button_2" />
 
             <TextView
                 android:id="@+id/loading_message"

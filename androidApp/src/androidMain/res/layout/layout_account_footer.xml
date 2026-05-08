@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/miuix_theme_color"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -12,7 +13,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:text="退出登录"
-        android:textColor="?android:attr/textColorSecondary" />
+        android:textColor="@color/miuix_summary_color" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_delete_account"
@@ -23,7 +24,7 @@
         android:background="?attr/selectableItemBackground"
         android:gravity="center"
         android:text="删除账号"
-        android:textColor="@color/AccentColor"
+        android:textColor="@color/danger_color"
         android:textSize="14sp" />
 
 </LinearLayout>

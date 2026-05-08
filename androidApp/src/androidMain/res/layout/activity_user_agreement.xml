@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorBackground"
+    android:background="@color/miuix_theme_color"
     tools:context=".page.useragreement.WxpUserAgreementActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="用户协议与隐私政策"
                 android:textAlignment="center"
-                android:textColor="?android:attr/textColorPrimary"
+                android:textColor="@color/miuix_title_color"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="24dp"
                 android:lineSpacingExtra="8dp"
                 android:text="欢迎使用WxPusher！在使用我们的服务前，请您仔细阅读并同意以下协议：\n\n我们非常重视您的个人信息和隐私保护。为了更好地保障您的权益，请您认真阅读《用户协议》和《隐私政策》的全部内容，同意并接受全部条款后开始使用我们的产品和服务。\n\n1. 我们会收集您的设备信息、用于向您提供消息推送服务；\n2. 我们可能会记录程序日志，用于问题排查；"
-                android:textColor="?android:attr/textColorPrimary"
+                android:textColor="@color/miuix_title_color"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +74,7 @@
             android:stateListAnimator="@null"
             android:text="同意并继续"
             android:textSize="16sp"
+            app:backgroundTint="@color/miuix_dialog_button_2"
             app:cornerRadius="8dp"
             app:elevation="0dp" />
 
@@ -88,8 +89,10 @@
             android:stateListAnimator="@null"
             android:text="不同意"
             android:textSize="16sp"
+            android:textColor="@color/miuix_summary_color"
             app:cornerRadius="8dp"
-            app:elevation="0dp" />
+            app:elevation="0dp"
+            app:strokeColor="@color/miuix_summary_color" />
 
     </LinearLayout>
 
