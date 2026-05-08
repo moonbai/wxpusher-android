@@ -17,7 +17,7 @@ kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
 
@@ -33,6 +33,9 @@ kotlin {
 //            implementation("androidx.webkit:webkit:1.9.0")
             implementation("com.google.android.material:material:1.12.0")
             implementation("commons-codec:commons-codec:1.6")
+
+            // HiMiuix UI组件
+            implementation(project(":HiMiuix"))
 
             //腾讯shiply https://shiply.tds.qq.com/docs/doc?id=4008331373
             implementation("com.tencent.shiply:upgrade:2.2.1-RC01") {
@@ -106,20 +109,19 @@ android {
 
     buildTypes {
         getByName("release") {
-            // true - 打开混淆
-            isMinifyEnabled = true
-            // true - 打开资源压缩
-            isShrinkResources = true
-            // 指定ProGuard规则文件
+            // 暂时禁用混淆以便测试APK内容完整性
+            isMinifyEnabled = false
+            // 禁用资源压缩
+            isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            // 使用 release 签名配置（如果存在）
+            // 使用 release 签名配置（如果存在），否则使用debug签名
             signingConfig = try {
                 signingConfigs.getByName("release")
             } catch (_: UnknownDomainObjectException) {
-                null
+                signingConfigs.getByName("debug")
             }
         }
         getByName("debug") {
@@ -128,8 +130,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
 

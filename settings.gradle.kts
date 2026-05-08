@@ -56,3 +56,4 @@ dependencyResolutionManagement {
 
 include(":androidApp")
 include(":shared")
+include(":HiMiuix")
