@@ -11,7 +11,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.checkbox.MaterialCheckBox
-import com.google.android.material.textfield.TextInputEditText
+import com.hchen.himiuix.widget.MiuixCheckBox
+import com.hchen.himiuix.widget.MiuixEditText
 import com.smjcco.wxpusher.BuildConfig
 import com.smjcco.wxpusher.R
 import com.smjcco.wxpusher.base.WxpBaseMvpActivity
@@ -24,11 +25,11 @@ import com.smjcco.wxpusher.wxapi.WxpWeixinOpenManager
 
 class WxpLoginActivity : WxpBaseMvpActivity<IWxpLoginPresenter>(), IWxpLoginView {
 
-    private lateinit var phoneTextField: TextInputEditText
-    private lateinit var codeTextField: TextInputEditText
+    private lateinit var phoneTextField: MiuixEditText
+    private lateinit var codeTextField: MiuixEditText
     private lateinit var getCodeButton: MaterialButton
     private lateinit var loginButton: MaterialButton
-    private lateinit var privacyCheckbox: MaterialCheckBox
+    private lateinit var privacyCheckbox: MiuixCheckBox
     private lateinit var privacyLabel: TextView
     private lateinit var weixinLoginContainerFirst: View
     private lateinit var weixinLoginContainer: View
@@ -70,22 +71,22 @@ class WxpLoginActivity : WxpBaseMvpActivity<IWxpLoginPresenter>(), IWxpLoginView
 
     private fun setupClickListeners() {
         getCodeButton.setOnClickListener {
-            val phone = phoneTextField.text?.toString()
+            val phone = phoneTextField.getText()?.toString()
             presenter.sendVerifyCode(phone = phone)
         }
 
         loginButton.setOnClickListener {
             if (!privacyCheckbox.isChecked) {
                 checkPrivacyAgree {
-                    val phone = phoneTextField.text?.toString()
-                    val code = codeTextField.text?.toString()
+                    val phone = phoneTextField.getText()?.toString()
+                    val code = codeTextField.getText()?.toString()
                     presenter.verifyCodeLogin(phone = phone, verifyCode = code)
                 }
                 return@setOnClickListener
             }
 
-            val phone = phoneTextField.text?.toString()
-            val code = codeTextField.text?.toString()
+            val phone = phoneTextField.getText()?.toString()
+            val code = codeTextField.getText()?.toString()
             presenter.verifyCodeLogin(phone = phone, verifyCode = code)
         }
 
