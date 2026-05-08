@@ -51,6 +51,7 @@
     <color name="miuix_tip_color">#666666</color>
     <color name="miuix_switch_on">#B300B3</color>
     <color name="miuix_checkbox_on">#B300B3</color>
+    <color name="miuix_edit_background">#F0F0F0</color>
     <color name="miuix_edit_border">#B300B3</color>
     <color name="miuix_edit_cursor">#B300B3</color>
     <color name="miuix_seekbar_progress">#B300B3</color>
