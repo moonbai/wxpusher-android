@@ -1,4 +1,4 @@
-rootProject.name = "WxPusher-App"
+rootProject.name = "wxpusher-android"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
