@@ -23,7 +23,6 @@
             android:paddingTop="32dp"
             android:paddingBottom="32dp">
 
-            <!-- 主体内容垂直居中 -->
             <TextView
                 android:id="@+id/title_label"
                 android:layout_width="wrap_content"
@@ -73,156 +72,91 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone">
-                    <!-- 手机号输入框 -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/phone_input_layout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                    <com.hchen.himiuix.widget.MiuixEditText
+                        android:id="@+id/phone_text_field"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:boxBackgroundColor="@android:color/transparent"
-                        app:boxCornerRadiusBottomEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusTopStart="12dp"
-                        app:boxStrokeColor="@color/colorPrimary"
-                        app:boxStrokeWidth="1dp"
-                        app:boxStrokeWidthFocused="2dp"
-                        app:hintTextColor="@color/colorPrimary"
+                        android:layout_height="48dp"
+                        android:background="@drawable/miuix_edit_background"
+                        android:drawableStart="@drawable/ic_phone"
+                        android:drawablePadding="12dp"
+                        android:hint="@string/login_phone_hint"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="@color/text_fit_theme"
+                        android:textColorHint="@color/miuix_summary_color"
+                        android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:startIconDrawable="@drawable/ic_phone"
-                        app:startIconTint="@color/colorPrimary">
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/phone_text_field"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:hint="@string/login_phone_hint"
-                            android:inputType="phone"
-                            android:maxLength="11"
-                            android:paddingStart="16dp"
-                            android:paddingTop="16dp"
-                            android:paddingEnd="16dp"
-                            android:paddingBottom="16dp"
-                            android:textColor="@color/text_fit_theme"
-                            android:textSize="16sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/AccentColor" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <!-- 验证码输入框和获取验证码按钮 -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/code_input_layout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    <com.hchen.himiuix.widget.MiuixEditText
+                        android:id="@+id/code_text_field"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
-                        app:boxBackgroundColor="@android:color/transparent"
-                        app:boxCornerRadiusBottomEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusTopStart="12dp"
-                        app:boxStrokeColor="@color/colorPrimary"
-                        app:boxStrokeWidth="1dp"
-
-                        app:boxStrokeWidthFocused="2dp"
-                        app:hintTextColor="@color/colorPrimary"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/miuix_edit_background"
+                        android:drawableStart="@drawable/ic_security"
+                        android:drawablePadding="12dp"
+                        android:hint="@string/login_code_hint"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="@color/text_fit_theme"
+                        android:textColorHint="@color/miuix_summary_color"
+                        android:textSize="16sp"
                         app:layout_constraintEnd_toStartOf="@+id/get_code_button"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/phone_input_layout"
-                        app:startIconDrawable="@drawable/ic_security"
-                        app:startIconTint="@color/colorPrimary">
+                        app:layout_constraintTop_toBottomOf="@+id/phone_text_field" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/code_text_field"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:hint="@string/login_code_hint"
-                            android:inputType="number"
-                            android:maxLength="6"
-                            android:paddingStart="16dp"
-                            android:paddingTop="16dp"
-                            android:paddingEnd="16dp"
-                            android:paddingBottom="16dp"
-                            android:textColor="@color/text_fit_theme"
-                            android:textSize="16sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/AccentColor" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.button.MaterialButton
+                    <Button
                         android:id="@+id/get_code_button"
                         android:layout_width="0dp"
-                        android:layout_height="44dp"
-                        android:layout_marginStart="12dp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/miuix_dialog_button_2"
                         android:text="@string/login_get_code"
                         android:textColor="@color/white"
                         android:textSize="14sp"
-                        app:backgroundTint="@color/colorPrimary"
-                        app:cornerRadius="8dp"
-                        app:elevation="3dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/code_input_layout"
+                        app:layout_constraintBottom_toBottomOf="@+id/code_text_field"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/code_input_layout"
+                        app:layout_constraintStart_toEndOf="@+id/code_text_field"
+                        app:layout_constraintTop_toTopOf="@+id/code_text_field"
                         app:layout_constraintWidth_max="140dp" />
 
-                    <!-- 登录按钮 -->
-                    <com.google.android.material.button.MaterialButton
+                    <Button
                         android:id="@+id/login_button"
                         android:layout_width="0dp"
-                        android:layout_height="44dp"
+                        android:layout_height="52dp"
                         android:layout_marginTop="32dp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
+                        android:background="@drawable/miuix_dialog_button_2"
                         android:text="@string/login_button"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="17sp"
                         android:textStyle="bold"
-                        app:backgroundTint="@color/colorPrimary"
-                        app:cornerRadius="8dp"
-                        app:elevation="3dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/code_input_layout" />
+                        app:layout_constraintTop_toBottomOf="@+id/code_text_field" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- 微信登录 -->
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/weixin_login_container_first"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/miuix_dialog_button_2"
+                    android:drawableStart="@drawable/ic_weixin_btn"
+                    android:drawablePadding="8dp"
                     android:gravity="center"
-                    android:insetTop="0dp"
-                    android:visibility="visible"
-                    android:insetBottom="0dp"
                     android:text="微信一键登录"
                     android:textColor="@color/white"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    app:backgroundTint="@color/wechat_green"
-                    app:cornerRadius="8dp"
-                    app:elevation="0dp"
-                    app:icon="@drawable/ic_weixin_btn"
-                    app:iconGravity="textStart"
-                    app:iconPadding="8dp"
-                    app:iconSize="30dp"
-                    app:iconTint="@null" />
+                    android:visibility="visible" />
             </FrameLayout>
 
-
-            <!-- 隐私协议复选框和标签 -->
             <LinearLayout
                 android:id="@+id/privacy_container"
                 android:layout_width="0dp"
@@ -236,12 +170,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login_container">
 
-                <com.google.android.material.checkbox.MaterialCheckBox
+                <com.hchen.himiuix.widget.MiuixCheckBox
                     android:id="@+id/privacy_checkbox"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorPrimary"
-                    app:useMaterialThemeColors="true" />
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/privacy_label"
@@ -259,7 +191,6 @@
 
             </LinearLayout>
 
-            <!-- 第三方登录分割线 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/thrid_login_divider"
                 android:layout_width="match_parent"
@@ -313,7 +244,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/thrid_login_divider">
-                <!-- 微信登录 -->
 
                 <LinearLayout
                     android:id="@+id/weixin_login_container"
@@ -330,10 +260,7 @@
                     android:paddingTop="8dp"
                     android:paddingEnd="16dp"
                     android:paddingBottom="8dp"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/other_login_label">
+                    android:visibility="gone">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/weixin_login_icon"
@@ -351,21 +278,21 @@
                         android:textSize="13sp" />
 
                 </LinearLayout>
-                <!-- 手机号登录-->
-                <androidx.appcompat.widget.AppCompatButton
+
+                <Button
                     android:id="@+id/phone_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:paddingStart="16dp"
-                    android:paddingTop="8dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="8dp"
+                    android:background="@drawable/miuix_dialog_button_1"
+                    android:paddingStart="24dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="24dp"
+                    android:paddingBottom="12dp"
                     android:text="使用手机号登录"
-                    android:textColor="@color/AccentColor"
+                    android:textColor="@color/miuix_dialog_button_2"
                     android:textSize="16sp"
                     android:visibility="visible" />
 
@@ -378,7 +305,6 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <!-- 版权信息固定在底部 -->
         <TextView
             android:id="@+id/copyright_label"
             android:layout_width="wrap_content"

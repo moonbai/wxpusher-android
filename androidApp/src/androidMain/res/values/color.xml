@@ -43,4 +43,18 @@
     <color name="input_border_color">#E0E0E0</color>
     <color name="input_border_valid">#4CAF50</color>
     <color name="input_border_invalid">#F44336</color>
+
+    <!-- HiMiuix UI 颜色 -->
+    <color name="miuix_theme_color">#F7F7F7</color>
+    <color name="miuix_title_color">#030303</color>
+    <color name="miuix_summary_color">#666666</color>
+    <color name="miuix_tip_color">#666666</color>
+    <color name="miuix_switch_on">#B300B3</color>
+    <color name="miuix_checkbox_on">#B300B3</color>
+    <color name="miuix_edit_border">#B300B3</color>
+    <color name="miuix_edit_cursor">#B300B3</color>
+    <color name="miuix_seekbar_progress">#B300B3</color>
+    <color name="miuix_dialog_button_2">#B300B3</color>
+    <color name="miuix_item_choose_text">#B300B3</color>
+    <color name="miuix_item_choose_background">#F5E6F5</color>
 </resources>
