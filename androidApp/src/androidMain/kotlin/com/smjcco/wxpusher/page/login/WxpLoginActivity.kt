@@ -10,7 +10,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.checkbox.MaterialCheckBox
 import com.hchen.himiuix.widget.MiuixCheckBox
 import com.hchen.himiuix.widget.MiuixEditText
 import com.smjcco.wxpusher.BuildConfig
@@ -18,10 +17,8 @@ import com.smjcco.wxpusher.R
 import com.smjcco.wxpusher.base.WxpBaseMvpActivity
 import com.smjcco.wxpusher.base.common.WxpDialogParams
 import com.smjcco.wxpusher.base.common.WxpDialogUtils
-import com.smjcco.wxpusher.base.common.WxpToastUtils
 import com.smjcco.wxpusher.common.WxpConstants
 import com.smjcco.wxpusher.utils.WxpJumpPageUtils
-import com.smjcco.wxpusher.wxapi.WxpWeixinOpenManager
 
 class WxpLoginActivity : WxpBaseMvpActivity<IWxpLoginPresenter>(), IWxpLoginView {
 
@@ -31,10 +28,6 @@ class WxpLoginActivity : WxpBaseMvpActivity<IWxpLoginPresenter>(), IWxpLoginView
     private lateinit var loginButton: MaterialButton
     private lateinit var privacyCheckbox: MiuixCheckBox
     private lateinit var privacyLabel: TextView
-    private lateinit var weixinLoginContainerFirst: View
-    private lateinit var weixinLoginContainer: View
-    private lateinit var phoneLoginContainer: View
-    private lateinit var phoneLoginBtn: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,10 +56,6 @@ class WxpLoginActivity : WxpBaseMvpActivity<IWxpLoginPresenter>(), IWxpLoginView
         loginButton = findViewById(R.id.login_button)
         privacyCheckbox = findViewById(R.id.privacy_checkbox)
         privacyLabel = findViewById(R.id.privacy_label)
-        weixinLoginContainerFirst = findViewById(R.id.weixin_login_container_first)
-        weixinLoginContainer = findViewById(R.id.weixin_login_container)
-        phoneLoginContainer = findViewById(R.id.login_phone_container)
-        phoneLoginBtn = findViewById(R.id.phone_login)
     }
 
     private fun setupClickListeners() {
@@ -88,40 +77,6 @@ class WxpLoginActivity : WxpBaseMvpActivity<IWxpLoginPresenter>(), IWxpLoginView
             val phone = phoneTextField.getText()?.toString()
             val code = codeTextField.getText()?.toString()
             presenter.verifyCodeLogin(phone = phone, verifyCode = code)
-        }
-
-        phoneLoginBtn.setOnClickListener {
-            phoneLoginBtn.visibility = View.GONE
-            weixinLoginContainerFirst.visibility = View.GONE
-            phoneLoginContainer.visibility = View.VISIBLE
-            weixinLoginContainer.visibility = View.VISIBLE
-        }
-        weixinLoginContainerFirst.setOnClickListener {
-            onWeixinLoginClick()
-        }
-        weixinLoginContainer.setOnClickListener {
-            onWeixinLoginClick()
-        }
-
-    }
-
-    private fun onWeixinLoginClick() {
-        if (!privacyCheckbox.isChecked) {
-            checkPrivacyAgree {
-                handleWeixinLogin()
-            }
-            return
-        }
-        handleWeixinLogin()
-    }
-
-    private fun handleWeixinLogin() {
-        WxpWeixinOpenManager.requestAuth { response, error ->
-            if (error != null) {
-                WxpToastUtils.showToast(error.message)
-                return@requestAuth
-            }
-            presenter.weixinLogin(response?.code)
         }
     }
 

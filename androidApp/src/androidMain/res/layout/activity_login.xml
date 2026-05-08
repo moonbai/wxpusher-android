@@ -71,7 +71,7 @@
                     android:id="@+id/login_phone_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <com.hchen.himiuix.widget.MiuixEditText
                         android:id="@+id/phone_text_field"
@@ -154,7 +154,7 @@
                     android:textColor="@color/white"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
             </FrameLayout>
 
             <LinearLayout
@@ -195,6 +195,7 @@
                 android:id="@+id/thrid_login_divider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@+id/privacy_container">
 
                 <View
