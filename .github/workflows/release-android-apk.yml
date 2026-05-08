@@ -35,26 +35,37 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    #新建一个文件夹，用户保存签名密钥
     - name: mkdir android secrets dir
       run: mkdir -p secrets/android
 
+    - name: Check keystore availability
+      id: check_keystore
+      run: |
+        if [ -n "${{ secrets.APK_SIGN_JKS }}" ]; then
+          echo "valid=true" >> $GITHUB_OUTPUT
+        else
+          echo "valid=false" >> $GITHUB_OUTPUT
+        fi
 
-    #从 Secrets 还原 keystore 文件
     - name: Restore keystore file
+      if: steps.check_keystore.outputs.valid == 'true'
       env:
         KEYSTORE_BASE64: ${{ secrets.APK_SIGN_JKS }}
       run: |
         echo $KEYSTORE_BASE64 | base64 -d > sign_keystore.jks
       working-directory: ./secrets/android
-    #创建阿里云日志密钥
-    - name: Create ALIYUN SLS ACCESS KEY properties
+
+    - name: Create ALIYUN properties
+      env:
+        ALIYUN_ACCESS_KEY_ID: ${{ secrets.ALIYUN_SLS_ACCESS_KEY_ID }}
+        ALIYUN_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_SLS_ACCESS_KEY_SECRET }}
       run: |
-        echo "aliyun.sls.accessKeyId=${{ secrets.ALIYUN_SLS_ACCESS_KEY_ID }}" >> key.properties
-        echo "aliyun.sls.accessKeySecret=${{ secrets.ALIYUN_SLS_ACCESS_KEY_SECRET }}" >> key.properties
+        echo "aliyun.sls.accessKeyId=${ALIYUN_ACCESS_KEY_ID:-}" >> key.properties
+        echo "aliyun.sls.accessKeySecret=${ALIYUN_ACCESS_KEY_SECRET:-}" >> key.properties
       working-directory: ./secrets/android
-    #创建签名需要的信息
+
     - name: Create secrets.properties
+      if: steps.check_keystore.outputs.valid == 'true'
       run: |
         echo "storeFile=sign_keystore.jks" > key.properties
         echo "storePassword=${{ secrets.APK_SIGN_KEYSTORE_PASSWORD }}" >> key.properties
@@ -65,14 +76,12 @@ jobs:
     - name: Build Android APK
       run: ./gradlew clean :androidApp:assembleProdRelease
 
-    # 读取安卓版本号，用于产物命名和发布
     - name: Get app version
       id: get_version
       run: |
         VERSION=$(grep "versionName" androidApp/build.gradle.kts | head -1 | awk -F '"' '{print $2}')
         echo "APP_VERSION=$VERSION" >> $GITHUB_OUTPUT
 
-    # 重命名 APK 文件为更简洁的名称
     - name: Prepare APK file
       id: prepare
       run: |
@@ -81,14 +90,12 @@ jobs:
         mv "$APK_FILE" "$RELEASE_APK"
         echo "APK_PATH=$RELEASE_APK" >> $GITHUB_OUTPUT
 
-    # 上传 APK 产物，方便下载
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: wxpusher-app-v${{ steps.get_version.outputs.APP_VERSION }}-prod-${{ github.run_number }}.apk
         path: ${{ steps.prepare.outputs.APK_PATH }}
 
-    # 创建 GitHub Release 并上传 APK
     - name: Create GitHub Release
       if: ${{ inputs.create_release }}
       uses: softprops/action-gh-release@v2
