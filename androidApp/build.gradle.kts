@@ -61,7 +61,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.smjcco.wxpusher.unofficial"
+    namespace = "com.smjcco.wxpusher"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
