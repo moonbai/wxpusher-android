@@ -115,9 +115,9 @@ android {
 
     buildTypes {
         getByName("release") {
-            // 暂时禁用混淆以便测试APK内容完整性
-            isMinifyEnabled = false
-            // 禁用资源压缩
+            // 启用代码混淆以减小包体积
+            isMinifyEnabled = true
+            // 禁用资源压缩以保留RES资源原始名称
             isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
