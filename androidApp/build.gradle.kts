@@ -96,13 +96,19 @@ android {
         val secretsDir = rootProject.file("secrets/android")
         val keyPropertiesFile = File(secretsDir, "key.properties")
         if (keyPropertiesFile.exists()) {
-            create("release") {
-                val keyProperties = Properties()
-                keyProperties.load(keyPropertiesFile.inputStream())
-                storeFile = File(secretsDir, keyProperties.getProperty("storeFile"))
-                storePassword = keyProperties.getProperty("storePassword")
-                keyAlias = keyProperties.getProperty("keyAlias")
-                keyPassword = keyProperties.getProperty("keyPassword")
+            val keyProperties = Properties()
+            keyProperties.load(keyPropertiesFile.inputStream())
+            val storeFileName = keyProperties.getProperty("storeFile")
+            val storePassword = keyProperties.getProperty("storePassword")
+            val keyAlias = keyProperties.getProperty("keyAlias")
+            val keyPassword = keyProperties.getProperty("keyPassword")
+            if (!storeFileName.isNullOrEmpty() && !storePassword.isNullOrEmpty() && !keyAlias.isNullOrEmpty() && !keyPassword.isNullOrEmpty()) {
+                create("release") {
+                    this.storeFile = File(secretsDir, storeFileName)
+                    this.storePassword = storePassword
+                    this.keyAlias = keyAlias
+                    this.keyPassword = keyPassword
+                }
             }
         }
     }
