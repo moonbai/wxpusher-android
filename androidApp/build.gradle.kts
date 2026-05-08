@@ -61,15 +61,15 @@ kotlin {
 }
 
 android {
-    namespace = "com.smjcco.wxpusher"
+    namespace = "com.smjcco.wxpusher.unofficial"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.smjcco.wxpusher"
+        applicationId = "com.smjcco.wxpusher.unofficial"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 10720
-        versionName = "1.7.20"
+        versionCode = 100
+        versionName = "1.0.0"
         //指定产物名称
         setProperty("archivesBaseName", "wxpusher-app-v$versionName")
 

@@ -12,6 +12,7 @@ import com.smjcco.wxpusher.base.common.ApplicationUtils
 import com.smjcco.wxpusher.base.common.WxpLogUtils
 import com.smjcco.wxpusher.base.common.WxpToastUtils
 import com.smjcco.wxpusher.common.withActivity
+import com.smjcco.wxpusher.page.about.AboutActivity
 import com.smjcco.wxpusher.page.accountdetail.AccountDetailActivity
 import com.smjcco.wxpusher.page.accountdetail.WxpRemoveAccountActivity
 import com.smjcco.wxpusher.page.bind.WxpBindActivity
@@ -203,6 +204,13 @@ object WxpJumpPageUtils {
     fun jumpToRemoveAccount(activity: Activity? = null) {
         withActivity(activity) {
             val intent = Intent(it, WxpRemoveAccountActivity::class.java)
+            it.startActivity(intent)
+        }
+    }
+
+    fun jumpToAbout(activity: Activity? = null) {
+        withActivity(activity) {
+            val intent = Intent(it, AboutActivity::class.java)
             it.startActivity(intent)
         }
     }

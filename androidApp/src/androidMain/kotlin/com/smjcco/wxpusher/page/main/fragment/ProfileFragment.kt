@@ -193,6 +193,13 @@ class ProfileFragment : WxpBaseFragment() {
                         hasArrow = true
                     ) {
                         openRecordUrl()
+                    },
+                    ProfileItem(
+                        title = "关于",
+                        subtitle = "作者: Mars",
+                        hasArrow = true
+                    ) {
+                        WxpJumpPageUtils.jumpToAbout(requireActivity())
                     }
                 )
             ))
