@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/PageBg1"
+    android:background="@color/miuix_theme_color"
     android:orientation="vertical">
 
-    <!-- 第三方内容警告 Banner -->
     <LinearLayout
         android:id="@+id/thirdPartyBannerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/AccentColor"
+        android:background="@color/miuix_dialog_button_2"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="12dp"
@@ -41,13 +40,11 @@
 
     </LinearLayout>
 
-    <!-- WebView 容器 -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <!-- Progress Bar -->
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -55,10 +52,9 @@
             android:layout_height="2dp"
             android:max="100"
             android:progress="0"
-            android:progressTint="@color/AccentColor"
+            android:progressTint="@color/miuix_dialog_button_2"
             android:visibility="gone" />
 
-        <!-- WebView -->
         <WebView
             android:id="@+id/webView"
             android:layout_width="match_parent"
@@ -66,28 +62,25 @@
 
     </FrameLayout>
 
-    <!-- 底部工具栏 -->
     <LinearLayout
         android:id="@+id/webOptionView"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/PageBg1"
+        android:background="@color/miuix_theme_color"
         android:elevation="8dp"
         android:orientation="vertical">
 
-        <!-- 分隔线 -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/Divider" />
+            android:layout_height="0.5dp"
+            android:background="@color/miuix_edit_border"
+            android:alpha="0.2" />
 
-        <!-- 按钮容器 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <!-- 后退按钮 -->
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/backButton"
                 android:layout_width="0dp"
@@ -96,9 +89,8 @@
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:enabled="false"
                 android:src="@drawable/ic_chevron_left"
-                android:tint="@color/text_fit_theme" />
+                android:tint="@color/miuix_title_color" />
 
-            <!-- 前进按钮 -->
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/forwardButton"
                 android:layout_width="0dp"
@@ -107,9 +99,8 @@
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:enabled="false"
                 android:src="@drawable/ic_chevron_right"
-                android:tint="@color/text_fit_theme" />
+                android:tint="@color/miuix_title_color" />
 
-            <!-- 刷新按钮 -->
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/refreshButton"
                 android:layout_width="0dp"
@@ -117,9 +108,8 @@
                 android:layout_weight="1"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_refresh"
-                app:tint="@color/text_fit_theme" />
+                app:tint="@color/miuix_title_color" />
 
-            <!-- 关闭按钮 -->
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/closeButton"
                 android:layout_width="0dp"
@@ -127,14 +117,10 @@
                 android:layout_weight="1"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_close"
-                android:tint="@color/text_fit_theme" />
+                android:tint="@color/miuix_title_color" />
 
         </LinearLayout>
 
     </LinearLayout>
 
 </LinearLayout>
-
-
-
-

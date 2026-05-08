@@ -3,9 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/PageBg2">
+    android:background="@color/miuix_theme_color">
 
-    <!-- Top spacing -->
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp" />
@@ -16,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Section Title"
         android:textSize="13sp"
-        android:textColor="@color/text_fit_theme_second"
+        android:textColor="@color/miuix_summary_color"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingBottom="12dp"

@@ -325,7 +325,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/bg_search_bar"
+            android:background="@drawable/miuix_search_bar_background"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -335,7 +335,7 @@
                 android:layout_marginStart="12dp"
                 android:contentDescription="请输入关键字搜索消息"
                 android:src="@drawable/ic_search"
-                app:tint="@color/text_fit_theme_second" />
+                app:tint="@color/miuix_summary_color" />
 
             <EditText
                 android:id="@+id/search_edit_text"
@@ -353,8 +353,8 @@
                 android:paddingEnd="8dp"
                 android:paddingBottom="8dp"
                 android:singleLine="true"
-                android:textColor="@color/text_fit_theme"
-                android:textColorHint="@color/text_fit_theme_second"
+                android:textColor="@color/miuix_title_color"
+                android:textColorHint="@color/miuix_summary_color"
                 android:textSize="16sp" />
         </LinearLayout>
 

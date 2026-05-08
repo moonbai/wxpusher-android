@@ -2,12 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/bg_fit_theme_first"
+    android:background="@drawable/miuix_item_ripple"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical">
 
-    <!-- 主要内容区域 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +25,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="标题"
-            android:textColor="@color/text_fit_theme_first"
+            android:textColor="@color/miuix_title_color"
             android:textSize="16sp" />
 
         <TextView
@@ -39,7 +38,7 @@
             android:gravity="end"
             android:maxLines="1"
             android:text="副标题"
-            android:textColor="@color/text_fit_theme_second"
+            android:textColor="@color/miuix_summary_color"
             android:textSize="14sp" />
 
         <ImageView
@@ -49,16 +48,17 @@
             android:layout_marginStart="8dp"
             android:contentDescription="@null"
             android:src="@drawable/ic_chevron_right_24"
+            android:tint="@color/miuix_summary_color"
             android:visibility="gone" />
 
     </LinearLayout>
 
-    <!-- 分割线 -->
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginStart="16dp"
-        android:background="@color/Divider" />
+        android:background="@color/miuix_edit_border"
+        android:alpha="0.2" />
 
 </LinearLayout>
