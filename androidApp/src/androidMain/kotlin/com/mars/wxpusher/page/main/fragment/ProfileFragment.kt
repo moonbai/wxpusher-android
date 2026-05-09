@@ -140,6 +140,13 @@ class ProfileFragment : WxpBaseFragment() {
                 title = "通用",
                 items = listOf(
                     ProfileItem(
+                        title = "主题设置",
+                        subtitle = "颜色和深色模式",
+                        hasArrow = true
+                    ) {
+                        WxpJumpPageUtils.jumpToThemeSettings(requireActivity())
+                    },
+                    ProfileItem(
                         title = "反馈建议",
                         subtitle = "欢迎你指导我们进步",
                         hasArrow = true
