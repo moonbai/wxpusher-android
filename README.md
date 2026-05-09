@@ -132,14 +132,6 @@ Android 端集成了多家厂商系统推送通道，通过统一的推送管理
 
 ---
 
-## 关于作者
-
-作者：Mars
-
-源码仓库：https://github.com/moonbai/wxpusher-android
-
----
-
 ## 开源协议
 
 本项目采用开源协议。
