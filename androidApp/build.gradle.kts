@@ -80,9 +80,9 @@ android {
     signingConfigs {
         getByName("debug") {
             storeFile = file("debug.jks")
-            storePassword = "smjcco"
-            keyAlias = "smjcco"
-            keyPassword = "smjcco"
+            storePassword = "Mars520"
+            keyAlias = "Mars"
+            keyPassword = "Mars1314"
         }
         val secretsDir = rootProject.file("secrets/android")
         val keyPropertiesFile = File(secretsDir, "key.properties")
