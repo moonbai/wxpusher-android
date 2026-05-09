@@ -71,7 +71,7 @@ android {
         versionCode = 100
         versionName = "1.0.0"
         //指定产物名称
-        setProperty("archivesBaseName", "wxpusher-app-v$versionName")
+        setProperty("archivesBaseName", "wxpusher-android-v$versionName")
 
         ndk {
             // 只保留ARM架构，去掉x86和x86_64，减小包大小

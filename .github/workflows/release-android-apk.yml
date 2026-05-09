@@ -85,15 +85,15 @@ jobs:
     - name: Prepare APK file
       id: prepare
       run: |
-        APK_FILE=$(ls androidApp/build/outputs/apk/prod/release/wxpusher-app-*.apk | head -1)
-        RELEASE_APK="androidApp/build/outputs/apk/prod/release/wxpusher-app-v${{ steps.get_version.outputs.APP_VERSION }}-${{ github.run_number }}.apk"
+        APK_FILE=$(ls androidApp/build/outputs/apk/prod/release/wxpusher-android-*.apk | head -1)
+        RELEASE_APK="androidApp/build/outputs/apk/prod/release/wxpusher-android-v${{ steps.get_version.outputs.APP_VERSION }}-${{ github.run_number }}.apk"
         mv "$APK_FILE" "$RELEASE_APK"
         echo "APK_PATH=$RELEASE_APK" >> $GITHUB_OUTPUT
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: wxpusher-app-v${{ steps.get_version.outputs.APP_VERSION }}-prod-${{ github.run_number }}.apk
+        name: wxpusher-android-v${{ steps.get_version.outputs.APP_VERSION }}-prod-${{ github.run_number }}.apk
         path: ${{ steps.prepare.outputs.APK_PATH }}
 
     - name: Create GitHub Release
@@ -101,9 +101,9 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         tag_name: v${{ steps.get_version.outputs.APP_VERSION }}-Android
-        name: WxPusher Android v${{ steps.get_version.outputs.APP_VERSION }}
+        name: wxpusher-android v${{ steps.get_version.outputs.APP_VERSION }}
         body: |
-          ## WxPusher Android v${{ steps.get_version.outputs.APP_VERSION }}
+          ## wxpusher-android v${{ steps.get_version.outputs.APP_VERSION }}
 
           ${{ github.event.inputs.release_notes || '新版本发布' }}
 
