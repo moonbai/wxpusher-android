@@ -60,6 +60,7 @@ class WxpMainActivity : WxpBaseActivity(), CurrentTabProvider {
         setContentView(R.layout.main_activity)
         // 初始化视图
         initViews()
+        applyThemeColors()
 
         if (checkAppStatus()) {
             //检查没有通过，不走后面的构建页面流程了
@@ -270,11 +271,27 @@ class WxpMainActivity : WxpBaseActivity(), CurrentTabProvider {
 
     override fun onResume() {
         super.onResume()
+        applyThemeColors()
         PushManager.showOpenNoteRemindSettingDialog(this)
         //显示首页的时候，尝试启动一次保活服务
         KeepWsAliveServiceStarter.start(this)
         //版本升级检测（内部有 3 小时节流；冷启、后台切前台都会触发）
         WxpVersionCheckManager.onAppForeground()
+    }
+
+    private fun applyThemeColors() {
+        val color = ThemeManager.getThemeColor(this)
+        supportActionBar?.let {
+            try {
+                it.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(color))
+            } catch (e: Exception) {
+                // 忽略异常
+            }
+        }
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = color
+        }
+        tabLayout.setSelectedTabIndicatorColor(color)
     }
 
     override fun onPause() {
