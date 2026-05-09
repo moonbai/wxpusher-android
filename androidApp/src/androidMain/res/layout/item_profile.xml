@@ -1,61 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="6dp"
-    app:cardBackgroundColor="@color/modern_surface"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="0dp"
-    app:strokeColor="@color/modern_outline"
-    app:strokeWidth="1dp">
+    android:background="@drawable/miuix_item_ripple"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="14dp">
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp">
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/modern_on_surface"
-            android:textSize="16sp"
-            tools:text="设置" />
+            android:text="标题"
+            android:textColor="@color/miuix_title_color"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_subtitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_weight="1"
             android:ellipsize="end"
             android:gravity="end"
             android:maxLines="1"
-            android:textColor="@color/modern_on_surface_variant"
-            android:textSize="14sp"
-            tools:text="副标题" />
+            android:text="副标题"
+            android:textColor="@color/miuix_summary_color"
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/iv_arrow"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginStart="8dp"
             android:contentDescription="@null"
-            android:src="@drawable/ic_chevron_right"
-            android:visibility="gone"
-            app:tint="@color/modern_on_surface_variant" />
+            android:src="@drawable/ic_chevron_right_24"
+            android:tint="@color/miuix_summary_color"
+            android:visibility="gone" />
 
     </LinearLayout>
 
-</com.google.android.material.card.MaterialCardView>
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="16dp"
+        android:alpha="0.2"
+        android:background="@color/miuix_edit_border" />
+
+</LinearLayout>

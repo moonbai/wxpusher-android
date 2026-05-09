@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
-    app:cardBackgroundColor="@color/modern_surface"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="0dp"
-    app:strokeColor="@color/modern_outline"
-    app:strokeWidth="1dp">
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/Divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingVertical="8dp">
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
 
         <LinearLayout
             android:id="@+id/batch_action_mark_read"
@@ -26,21 +27,23 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_done"
-                app:tint="@color/modern_primary" />
+                app:tint="@color/miuix_dialog_button_2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/message_list_action_mark_read"
-                android:textColor="@color/modern_on_surface"
+                android:textColor="@color/miuix_title_color"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -53,21 +56,23 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_mark_as_unread"
-                app:tint="@color/modern_primary" />
+                app:tint="@color/miuix_dialog_button_2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/message_list_action_mark_unread"
-                android:textColor="@color/modern_on_surface"
+                android:textColor="@color/miuix_title_color"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -80,24 +85,25 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_delete"
-                app:tint="@color/error" />
+                app:tint="@color/danger_color" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/message_list_action_delete"
-                android:textColor="@color/error"
+                android:textColor="@color/danger_color"
                 android:textSize="12sp" />
         </LinearLayout>
 
     </LinearLayout>
-
-</com.google.android.material.card.MaterialCardView>
+</LinearLayout>

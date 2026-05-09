@@ -3,20 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/modern_surface_variant"
-    android:paddingTop="20dp"
-    android:paddingBottom="8dp">
+    android:background="@color/miuix_theme_color">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/tv_section_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Section Title"
+        android:textSize="13sp"
+        android:textColor="@color/miuix_summary_color"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
-        android:text="Section Title"
-        android:textColor="@color/modern_on_surface_variant"
-        android:textSize="13sp"
+        android:paddingBottom="12dp"
+        android:textStyle="normal"
         android:textAllCaps="false" />
 
 </LinearLayout>
