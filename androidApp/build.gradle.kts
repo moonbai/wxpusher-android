@@ -51,11 +51,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.smjcco.wxpusher"
+    namespace = "com.mars.wxpusher"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.smjcco.wxpusher"
+        applicationId = "com.mars.wxpusher"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 100
@@ -106,12 +106,14 @@ android {
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = true
+            // 关闭混淆 & 关闭资源压缩
+            isMinifyEnabled = false
             isShrinkResources = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            // 禁用混淆配置文件
+            // proguardFiles(
+            //     getDefaultProguardFile("proguard-android-optimize.txt"),
+            //     "proguard-rules.pro"
+            // )
             signingConfig = try {
                 signingConfigs.getByName("release")
             } catch (_: UnknownDomainObjectException) {

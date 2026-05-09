@@ -1,0 +1,26 @@
+package com.mars.wxpusher.base
+
+import android.os.Bundle
+import com.mars.wxpusher.base.common.IWxpBaseMvpPresenter
+
+abstract class WxpBaseMvpFragment<P : IWxpBaseMvpPresenter<*, *>> : WxpBaseFragment() {
+    protected lateinit var presenter: P
+
+    abstract fun createPresenter(): P
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        presenter = createPresenter()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.onShow()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDestroy()
+    }
+
+}

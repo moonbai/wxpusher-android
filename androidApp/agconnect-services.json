@@ -33,7 +33,7 @@
     "project_id": "461323198429881315",
     "app_id": "114073793",
     "api_key": "DQEDAFnhYIFcGD534Mc9xUfZc8GJId+9ykxlRFch4nMSLsZ10tUvTEqHl36eXBpVvUMbnB3UAfFLU7QDxOWY8T9gw5IDMmZbpO/FlQ==",
-    "package_name": "com.smjcco.wxpusher"
+    "package_name": "com.mars.wxpusher"
   },
   "oauth_client": {
     "client_id": "114073793",
@@ -41,7 +41,7 @@
   },
   "app_info": {
     "app_id": "114073793",
-    "package_name": "com.smjcco.wxpusher"
+    "package_name": "com.mars.wxpusher"
   },
   "service": {
     "analytics": {
@@ -79,12 +79,12 @@
   "configuration_version": "3.0",
   "appInfos": [
     {
-      "package_name": "com.smjcco.wxpusher",
+      "package_name": "com.mars.wxpusher",
       "client": {
         "app_id": "114073793"
       },
       "app_info": {
-        "package_name": "com.smjcco.wxpusher",
+        "package_name": "com.mars.wxpusher",
         "app_id": "114073793"
       },
       "oauth_client": {

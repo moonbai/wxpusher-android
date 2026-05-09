@@ -119,7 +119,7 @@
 -keep class com.tencent.mm.sdk.** { *; }
 
 #xiaomi推送
- -keep class com.smjcco.wxpusher.push.xiaomi.XiaomiPushMessageReceiver {*;}
+ -keep class com.mars.wxpusher.push.xiaomi.XiaomiPushMessageReceiver {*;}
  #华为推送
  -keep class com.huawei.hianalytics.**{*;}
  -keep class com.huawei.updatesdk.**{*;}
@@ -132,7 +132,7 @@
 -dontwarn com.vivo.push.**
 -keep class com.vivo.push.**{*; }
 -keep class com.vivo.vms.**{*; }
--keep class com.smjcco.wxpusher.push.vivo.VIVOClientPushMessageReceiver{*;}
+-keep class com.mars.wxpusher.push.vivo.VIVOClientPushMessageReceiver{*;}
 #荣耀
 -keep class com.hihonor.push.**{*;}
 #oppo
