@@ -36,6 +36,7 @@
     <color name="modern_on_primary">#FFFFFF</color>
     <color name="modern_surface">#1C1C1E</color>
     <color name="modern_on_surface">#FFFFFF</color>
+    <color name="modern_on_surface_variant">#8E8E93</color>
     <color name="modern_surface_variant">#2C2C2E</color>
     <color name="modern_outline">#3A3A3C</color>
     <color name="modern_background">#121212</color>
