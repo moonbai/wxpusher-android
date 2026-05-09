@@ -2,10 +2,10 @@ name: Release Android Apk
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, alpha/* ]
 
   pull_request:
-    branches: [ unofficial_custom/* ]
+    branches: [ master, alpha/* ]
 
   workflow_dispatch:
     inputs:

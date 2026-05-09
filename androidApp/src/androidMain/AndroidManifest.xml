@@ -121,6 +121,13 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".page.theme.ThemeSettingsActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionTheme" />
+
+        <activity
             android:name=".page.web.WxpWebViewActivity"
             android:exported="true" />
 

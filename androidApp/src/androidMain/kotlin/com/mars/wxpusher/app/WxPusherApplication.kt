@@ -13,6 +13,7 @@ import com.mars.wxpusher.base.common.WxpSaveService
 import com.mars.wxpusher.base.common.init
 import com.mars.wxpusher.biz.version.WxpVersionCheckManager
 import com.mars.wxpusher.config.ConfigManager
+import com.mars.wxpusher.page.theme.ThemeManager
 import com.mars.wxpusher.push.PushManager
 import com.mars.wxpusher.utils.AppMarketNavigator
 import com.mars.wxpusher.web.AppFeVersionManager
@@ -31,6 +32,8 @@ class WxPusherApplication : Application() {
         WxpLogUtils.i(TAG, "应用启动")
         //初始化一些配置和环境信息
         WxpConfig.init()
+        // 初始化主题管理
+        ThemeManager.init(this)
 
         //初始化页面跳转
         WxpAppPageService.init(WxpAppPageServiceImpl())

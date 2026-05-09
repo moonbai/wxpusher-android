@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/PageBg1"
+    android:background="@color/modern_background"
     android:fillViewport="true"
     android:fitsSystemWindows="true">
 
@@ -31,7 +31,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
                 android:text="@string/login_title"
-                android:textColor="@color/text_fit_theme"
+                android:textColor="@color/modern_on_background"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/subtitle_label"
@@ -51,7 +51,7 @@
                 android:gravity="center"
                 android:lineSpacingExtra="4dp"
                 android:text="@string/login_subtitle"
-                android:textColor="@color/check_description_color"
+                android:textColor="@color/modern_on_surface_variant"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/login_phone_container"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -68,73 +68,99 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/subtitle_label">
 
-                <com.hchen.himiuix.widget.MiuixEditText
-                    android:id="@+id/phone_text_field"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/phone_card"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/miuix_edit_background"
-                    android:drawableStart="@drawable/ic_phone"
-                    android:drawablePadding="12dp"
-                    android:hint="@string/login_phone_hint"
-                    android:inputType="phone"
-                    android:maxLength="11"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:textColor="@color/text_fit_theme"
-                    android:textColorHint="@color/miuix_summary_color"
-                    android:textSize="16sp"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/modern_surface"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/modern_outline"
+                    app:strokeWidth="1dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <com.hchen.himiuix.widget.MiuixEditText
-                    android:id="@+id/code_text_field"
+                    <com.hchen.himiuix.widget.MiuixEditText
+                        android:id="@+id/phone_text_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@android:color/transparent"
+                        android:drawableStart="@drawable/ic_phone"
+                        android:drawablePadding="12dp"
+                        android:hint="@string/login_phone_hint"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="@color/modern_on_surface"
+                        android:textColorHint="@color/modern_on_surface_variant"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/code_card"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="12dp"
-                    android:background="@drawable/miuix_edit_background"
-                    android:drawableStart="@drawable/ic_security"
-                    android:drawablePadding="12dp"
-                    android:hint="@string/login_code_hint"
-                    android:inputType="number"
-                    android:maxLength="6"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:textColor="@color/text_fit_theme"
-                    android:textColorHint="@color/miuix_summary_color"
-                    android:textSize="16sp"
+                    app:cardBackgroundColor="@color/modern_surface"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/modern_outline"
+                    app:strokeWidth="1dp"
                     app:layout_constraintEnd_toStartOf="@+id/get_code_button"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/phone_text_field" />
+                    app:layout_constraintTop_toBottomOf="@+id/phone_card">
 
-                <Button
+                    <com.hchen.himiuix.widget.MiuixEditText
+                        android:id="@+id/code_text_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@android:color/transparent"
+                        android:drawableStart="@drawable/ic_security"
+                        android:drawablePadding="12dp"
+                        android:hint="@string/login_code_hint"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="@color/modern_on_surface"
+                        android:textColorHint="@color/modern_on_surface_variant"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/get_code_button"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/miuix_dialog_button_2"
+                    android:backgroundTint="@color/modern_primary"
                     android:text="@string/login_get_code"
-                    android:textColor="@color/white"
+                    android:textColor="@color/modern_on_primary"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/code_text_field"
+                    app:cornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/code_card"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/code_text_field"
-                    app:layout_constraintTop_toTopOf="@+id/code_text_field"
+                    app:layout_constraintStart_toEndOf="@+id/code_card"
+                    app:layout_constraintTop_toTopOf="@+id/code_card"
                     app:layout_constraintWidth_max="140dp" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/login_button"
                     android:layout_width="0dp"
                     android:layout_height="52dp"
                     android:layout_marginTop="32dp"
-                    android:background="@drawable/miuix_dialog_button_2"
+                    android:backgroundTint="@color/modern_primary"
                     android:text="@string/login_button"
-                    android:textColor="@color/white"
+                    android:textColor="@color/modern_on_primary"
                     android:textSize="17sp"
                     android:textStyle="bold"
+                    app:cornerRadius="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/code_text_field" />
+                    app:layout_constraintTop_toBottomOf="@+id/code_card" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -167,7 +193,7 @@
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
                     android:text="同意《隐私协议和用户协议》"
-                    android:textColor="@color/text_fit_theme"
+                    android:textColor="@color/modern_on_surface"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -187,7 +213,7 @@
             android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="@string/login_copyright"
-            android:textColor="@color/check_description_color"
+            android:textColor="@color/modern_on_surface_variant"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

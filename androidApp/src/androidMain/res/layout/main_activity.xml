@@ -21,8 +21,8 @@
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            android:background="@color/miuix_edit_border"
             android:alpha="0.2"
+            android:background="@color/miuix_edit_border"
             app:layout_constraintBottom_toTopOf="@+id/tab_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,18 +32,18 @@
             android:id="@+id/tab_layout"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:background="@drawable/miuix_tab_background"
+            android:background="@color/modern_surface"
             android:elevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:tabGravity="fill"
             app:tabIndicator="@null"
-            app:tabIndicatorColor="@color/miuix_dialog_button_2"
+            app:tabIndicatorColor="@color/modern_primary"
             app:tabIndicatorHeight="0dp"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/miuix_dialog_button_2"
-            app:tabTextColor="@drawable/miuix_tab_text_color_selector" />
+            app:tabSelectedTextColor="@color/modern_primary"
+            app:tabTextColor="@color/miuix_summary_color" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

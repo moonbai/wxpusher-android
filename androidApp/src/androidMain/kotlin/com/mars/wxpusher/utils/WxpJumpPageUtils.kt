@@ -23,6 +23,7 @@ import com.mars.wxpusher.page.login.WxpPhoneBind
 import com.mars.wxpusher.page.main.WxpMainActivity
 import com.mars.wxpusher.page.registerorbind.WxpRegisterOrBindActivity
 import com.mars.wxpusher.page.scan.WxpScanActivity
+import com.mars.wxpusher.page.theme.ThemeSettingsActivity
 import com.mars.wxpusher.page.useragreement.WxpUserAgreementActivity
 import com.mars.wxpusher.page.web.WxpWebViewActivity
 import com.mars.wxpusher.push.ws.WxpNotificationManager
@@ -211,6 +212,13 @@ object WxpJumpPageUtils {
     fun jumpToAbout(activity: Activity? = null) {
         withActivity(activity) {
             val intent = Intent(it, AboutActivity::class.java)
+            it.startActivity(intent)
+        }
+    }
+
+    fun jumpToThemeSettings(activity: Activity? = null) {
+        withActivity(activity) {
+            val intent = Intent(it, ThemeSettingsActivity::class.java)
             it.startActivity(intent)
         }
     }

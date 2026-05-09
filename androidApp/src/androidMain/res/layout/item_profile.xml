@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginStart="16dp"
-        android:background="@color/miuix_edit_border"
-        android:alpha="0.2" />
+        android:alpha="0.2"
+        android:background="@color/miuix_edit_border" />
 
 </LinearLayout>
