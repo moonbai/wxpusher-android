@@ -212,27 +212,15 @@ class ProfileFragment : WxpBaseFragment() {
         WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
     }
 
-<<<<<<< HEAD
-=======
     private fun openGitHubIssues() {
         val url = "https://github.com/moonbai/wxpusher-android/issues"
         WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
     }
 
->>>>>>> a9b0e53 (feat: add theme settings with color picker and dark mode support)
     private fun openUserAgreementUrl() {
         WxpJumpPageUtils.jumpToWebUrl(WxpConstants.PrivacyUrl, requireActivity())
     }
 
-<<<<<<< HEAD
-    private fun openGitHubIssues() {
-        val url = "https://github.com/moonbai/wxpusher-android/issues"
-        WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
-    }
-
-=======
->>>>>>> a9b0e53 (feat: add theme settings with color picker and dark mode support)
-    // 数据模型类
     data class ProfileSection(
         val title: String,
         val items: List<ProfileItem>
