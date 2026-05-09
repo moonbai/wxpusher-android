@@ -78,6 +78,11 @@ android {
             abiFilters.addAll(listOf("arm64-v8a"))
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
