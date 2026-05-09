@@ -2,30 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/miuix_theme_color"
+    android:background="@color/modern_surface_variant"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="24dp">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_logout"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:text="退出登录"
-        android:textColor="@color/miuix_summary_color" />
+        android:textColor="@color/modern_on_surface"
+        app:cornerRadius="12dp"
+        app:strokeColor="@color/modern_outline"
+        app:strokeWidth="1dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_delete_account"
+        style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center"
+        android:layout_marginTop="8dp"
         android:text="删除账号"
-        android:textColor="@color/danger_color"
+        android:textColor="@color/error"
         android:textSize="14sp" />
 
 </LinearLayout>
-

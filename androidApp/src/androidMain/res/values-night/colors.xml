@@ -1,34 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="AccentStatusBarColor">#121212</color>
-    <color name="LightStatusBarColor">#121212</color>
-    <color name="Divider">#333333</color>
-    <color name="PageBg1">#121212</color>
-    <color name="PageBg2">#333333</color>
+    <!-- Primary Colors - Modern Teal/Blue for Dark Mode -->
+    <color name="AccentStatusBarColor">#1A1A1A</color>
+    <color name="LightStatusBarColor">#1A1A1A</color>
+    <color name="Divider">#2C2C2E</color>
+    <color name="PageBg1">#1A1A1A</color>
+    <color name="PageBg2">#2C2C2E</color>
 
-    <color name="BlackBtnBg">#999999</color>
-    <color name="GrayCardBorder">#48484A</color>
+    <color name="BlackBtnBg">#0A84FF</color>
+    <color name="GrayCardBorder">#3A3A3C</color>
 
     <color name="text_fit_theme">#FFFFFF</color>
-    <color name="dark_bg">#121212</color>
-    <color name="check_success">#388E3C</color>
-    <color name="check_error">#D32F2F</color>
-    <color name="check_item_bg">#1E1E1E</color>
+    <color name="dark_bg">#1A1A1A</color>
+    <color name="check_success">#30D158</color>
+    <color name="check_error">#FF453A</color>
+    <color name="check_item_bg">#2C2C2E</color>
     <color name="check_text_color">#FFFFFF</color>
-    <color name="check_description_color">#B0B0B0</color>
+    <color name="check_description_color">#8E8E93</color>
 
     <color name="text_fit_theme_first">#FFFFFF</color>
-    <color name="bg_fit_theme_first">#121212</color>
+    <color name="bg_fit_theme_first">#1A1A1A</color>
 
-    <!-- 输入框背景颜色 -->
-    <color name="input_field_bg">#2A2A2A</color>
+    <!-- Input Field Colors -->
+    <color name="input_field_bg">#2C2C2E</color>
 
-    <!-- 解绑页面相关颜色 -->
-    <color name="danger_color">#F44336</color>
-    <color name="text_fit_theme_second">#B0B0B0</color>
-    <color name="card_bg_fit_theme">#1E1E1E</color>
-    <color name="input_border_color">#424242</color>
-    <color name="input_border_valid">#4CAF50</color>
-    <color name="input_border_invalid">#F44336</color>
+    <!-- Unbind Page Colors -->
+    <color name="danger_color">#FF453A</color>
+    <color name="text_fit_theme_second">#8E8E93</color>
+    <color name="card_bg_fit_theme">#2C2C2E</color>
+    <color name="input_border_color">#3A3A3C</color>
+    <color name="input_border_valid">#30D158</color>
+    <color name="input_border_invalid">#FF453A</color>
 
+    <!-- HiMiuix UI Colors - Modern Clean Dark Style -->
+    <color name="miuix_theme_color">#1A1A1A</color>
+    <color name="miuix_title_color">#FFFFFF</color>
+    <color name="miuix_summary_color">#8E8E93</color>
+    <color name="miuix_tip_color">#8E8E93</color>
+    <color name="miuix_switch_on">#0A84FF</color>
+    <color name="miuix_checkbox_on">#0A84FF</color>
+    <color name="miuix_edit_background">#2C2C2E</color>
+    <color name="miuix_edit_border">#3A3A3C</color>
+    <color name="miuix_edit_cursor">#0A84FF</color>
+    <color name="miuix_seekbar_progress">#0A84FF</color>
+    <color name="miuix_dialog_button_1">#2C2C2E</color>
+    <color name="miuix_dialog_button_2">#0A84FF</color>
+    <color name="miuix_item_choose_text">#0A84FF</color>
+    <color name="miuix_item_choose_background">#1C3A5E</color>
+
+    <!-- Modern UI Extension Colors -->
+    <color name="modern_primary">#0A84FF</color>
+    <color name="modern_primary_variant">#0066CC</color>
+    <color name="modern_secondary">#30D158</color>
+    <color name="modern_background">#1A1A1A</color>
+    <color name="modern_surface">#2C2C2E</color>
+    <color name="modern_surface_variant">#3A3A3C</color>
+    <color name="modern_on_primary">#FFFFFF</color>
+    <color name="modern_on_background">#FFFFFF</color>
+    <color name="modern_on_surface">#FFFFFF</color>
+    <color name="modern_on_surface_variant">#8E8E93</color>
+    <color name="modern_outline">#3A3A3C</color>
+    <color name="modern_divider">#2C2C2E</color>
+
+    <!-- Status Colors -->
+    <color name="success">#30D158</color>
+    <color name="warning">#FFD60A</color>
+    <color name="error">#FF453A</color>
+    <color name="info">#0A84FF</color>
 </resources>
