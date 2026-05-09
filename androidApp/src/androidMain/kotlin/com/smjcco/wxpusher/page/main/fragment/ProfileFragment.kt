@@ -12,15 +12,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.smjcco.wxpusher.R
-import com.smjcco.wxpusher.WxpConfig
 import com.smjcco.wxpusher.base.WxpBaseFragment
 import com.smjcco.wxpusher.base.biz.WxpAppDataService
-import com.smjcco.wxpusher.base.common.WxpBaseInfoService
 import com.smjcco.wxpusher.base.common.WxpDialogParams
 import com.smjcco.wxpusher.base.common.WxpDialogUtils
 import com.smjcco.wxpusher.base.common.WxpToastUtils
-import com.smjcco.wxpusher.base.common.runAtMainSuspend
-import com.smjcco.wxpusher.biz.version.WxpVersionCheckManager
 import com.smjcco.wxpusher.common.WxpConstants
 import com.smjcco.wxpusher.utils.PermissionUtils
 import com.smjcco.wxpusher.utils.WxpJumpPageUtils
@@ -140,20 +136,6 @@ class ProfileFragment : WxpBaseFragment() {
                 title = "通用",
                 items = listOf(
                     ProfileItem(
-                        title = "反馈建议",
-                        subtitle = "欢迎你指导我们进步",
-                        hasArrow = true
-                    ) {
-                        openFeedbackUrl()
-                    },
-                    ProfileItem(
-                        title = "软件更新",
-                        subtitle = WxpBaseInfoService.getAppVersionName(),
-                        hasArrow = true
-                    ) {
-                        checkForUpdate()
-                    },
-                    ProfileItem(
                         title = "用户协议",
                         subtitle = "查看用户和隐私协议",
                         hasArrow = true
@@ -162,20 +144,10 @@ class ProfileFragment : WxpBaseFragment() {
                     },
                     ProfileItem(
                         title = "联系我们",
-                        subtitle = "咨询和反馈问题",
+                        subtitle = "GitHub Issues反馈",
                         hasArrow = true
                     ) {
-                        WxpJumpPageUtils.jumpToWebUrl(
-                            "${WxpConfig.appFeUrl}/app/#/contact",
-                            activity
-                        )
-                    },
-                    ProfileItem(
-                        title = "备案号",
-                        subtitle = "蜀ICP备14025423号-2A",
-                        hasArrow = true
-                    ) {
-                        openRecordUrl()
+                        openGitHubIssues()
                     },
                     ProfileItem(
                         title = "关于",
@@ -232,21 +204,12 @@ class ProfileFragment : WxpBaseFragment() {
         WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
     }
 
-    private fun openFeedbackUrl() {
-        val url = "https://wj.qq.com/s2/22198188/cc95/"
-        WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
-    }
-
-    private fun checkForUpdate() {
-        WxpVersionCheckManager.onAppForeground(force = true)
-    }
-
     private fun openUserAgreementUrl() {
         WxpJumpPageUtils.jumpToWebUrl(WxpConstants.PrivacyUrl, requireActivity())
     }
 
-    private fun openRecordUrl() {
-        val url = "https://beian.miit.gov.cn/"
+    private fun openGitHubIssues() {
+        val url = "https://github.com/moonbai/wxpusher-android/issues"
         WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
     }
 
