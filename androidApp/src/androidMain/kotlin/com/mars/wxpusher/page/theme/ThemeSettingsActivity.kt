@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.card.MaterialCardView
 import com.mars.wxpusher.R
 import com.mars.wxpusher.base.WxpBaseActivity
 
@@ -22,6 +23,8 @@ class ThemeSettingsActivity : WxpBaseActivity() {
     private lateinit var rbLight: RadioButton
     private lateinit var rbDark: RadioButton
     private lateinit var rbSystem: RadioButton
+    private lateinit var colorsCard: MaterialCardView
+    private lateinit var darkModeCard: MaterialCardView
 
     private var themeColorAdapter: ThemeColorAdapter? = null
 
@@ -41,6 +44,7 @@ class ThemeSettingsActivity : WxpBaseActivity() {
         setupThemeColors()
         setupDarkModeOptions()
         updateDarkModeSelection()
+        applyThemeColors()
     }
 
     private fun initViews() {
@@ -52,12 +56,24 @@ class ThemeSettingsActivity : WxpBaseActivity() {
         rbLight = findViewById(R.id.rbLight)
         rbDark = findViewById(R.id.rbDark)
         rbSystem = findViewById(R.id.rbSystem)
+        colorsCard = findViewById(R.id.colorsCard)
+        darkModeCard = findViewById(R.id.darkModeCard)
     }
 
     private fun setupToolbar() {
         toolbar.setNavigationOnClickListener {
             finish()
         }
+    }
+
+    private fun applyThemeColors() {
+        val color = ThemeManager.getThemeColor(this)
+        toolbar.setBackgroundColor(color)
+        colorsCard.strokeColor = color
+        darkModeCard.strokeColor = color
+        rbLight.buttonTintList = android.content.res.ColorStateList.valueOf(color)
+        rbDark.buttonTintList = android.content.res.ColorStateList.valueOf(color)
+        rbSystem.buttonTintList = android.content.res.ColorStateList.valueOf(color)
     }
 
     private fun setupThemeColors() {
@@ -74,7 +90,7 @@ class ThemeSettingsActivity : WxpBaseActivity() {
 
         themeColorAdapter = ThemeColorAdapter(colors) { color ->
             ThemeManager.setThemeColor(this, color)
-            recreate()
+            applyThemeColors()
         }
 
         rvThemeColors.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)

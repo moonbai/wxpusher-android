@@ -105,6 +105,9 @@ class ProfileFragment : WxpBaseFragment() {
                 items = listOf(
                     ProfileItem(title = "主题设置", subtitle = "颜色和深色模式", hasArrow = true) {
                         WxpJumpPageUtils.jumpToThemeSettings(requireActivity())
+                    },
+                    ProfileItem(title = "关于", subtitle = "作者: Mars", hasArrow = true) {
+                        WxpJumpPageUtils.jumpToAbout(requireActivity())
                     }
                 )
             ))
