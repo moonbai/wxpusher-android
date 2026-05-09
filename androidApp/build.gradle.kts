@@ -5,12 +5,8 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
-//    alias(libs.plugins.huawei.agconnect)
-    //华为推送
     id("com.huawei.agconnect")
-    //荣耀推送
     id("com.hihonor.mcs.asplugin")
-
 }
 
 kotlin {
@@ -22,7 +18,6 @@ kotlin {
     }
 
     sourceSets {
-
         androidMain.dependencies {
             implementation(libs.androidx.core.ktx)
             implementation("androidx.work:work-runtime-ktx:2.10.0")
@@ -30,14 +25,11 @@ kotlin {
             implementation("com.google.code.gson:gson:2.10.1")
             implementation("androidx.fragment:fragment:1.7.0")
             implementation("androidx.appcompat:appcompat:1.7.0")
-//            implementation("androidx.webkit:webkit:1.9.0")
             implementation("com.google.android.material:material:1.12.0")
             implementation("commons-codec:commons-codec:1.6")
 
-            // HiMiuix UI组件
             implementation(project(":HiMiuix"))
 
-            //腾讯shiply https://shiply.tds.qq.com/docs/doc?id=4008331373
             implementation("com.tencent.shiply:upgrade:2.2.1-RC01") {
                 exclude(group = "androidx.appcompat", module = "appcompat")
                 exclude(group = "androidx.fragment", module = "fragment")
@@ -45,10 +37,8 @@ kotlin {
             implementation("com.tencent.shiply:upgrade-ui:2.2.1-RC01") {
                 exclude(group = "com.tencent.shiply", module = "upgrade")
             }
-            //华为推送
             implementation(libs.huawei.push)
             implementation("com.hihonor.mcs:push:8.0.12.307")
-            //SmartRefreshLayout下拉刷新
             implementation("io.github.scwang90:refresh-layout-kernel:2.1.0")
             implementation("io.github.scwang90:refresh-header-classics:2.1.0")
             implementation("io.github.scwang90:refresh-footer-classics:2.1.0")
@@ -70,11 +60,9 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 100
         versionName = "1.0.0"
-        //指定产物名称
         setProperty("archivesBaseName", "wxpusher-android-v$versionName")
 
         ndk {
-            // 只保留ARM架构，去掉x86和x86_64，减小包大小
             abiFilters.addAll(listOf("arm64-v8a"))
         }
     }
@@ -89,7 +77,6 @@ android {
         }
     }
 
-    // 签名配置必须在buildTypes之前定义
     signingConfigs {
         getByName("debug") {
             storeFile = file("debug.jks")
@@ -97,7 +84,6 @@ android {
             keyAlias = "smjcco"
             keyPassword = "smjcco"
         }
-        // Release 签名配置 - 从 secrets/android/key.properties 读取
         val secretsDir = rootProject.file("secrets/android")
         val keyPropertiesFile = File(secretsDir, "key.properties")
         if (keyPropertiesFile.exists()) {
@@ -120,15 +106,12 @@ android {
 
     buildTypes {
         getByName("release") {
-            // 启用代码混淆以减小包体积
             isMinifyEnabled = true
-            // 禁用资源压缩以保留RES资源原始名称
             isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            // 使用 release 签名配置（如果存在），否则使用debug签名
             signingConfig = try {
                 signingConfigs.getByName("release")
             } catch (_: UnknownDomainObjectException) {
@@ -145,15 +128,11 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-
-    // 定义flavor维度
     flavorDimensions.add("env")
 
-    // 配置产品风格
     productFlavors {
         create("offline") {
             dimension = "env"
-//            applicationIdSuffix = ".test"
             versionNameSuffix = ".test"
         }
         create("prod") {
@@ -173,8 +152,6 @@ dependencies {
         include("*.jar")
         include("*.aar")
     })
-//    implementation(libs.androidx.core)
-    // AndroidX, The Basics
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -182,13 +159,8 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.5.7")
     implementation("androidx.work:work-runtime-ktx:2.8.1")
     implementation("androidx.preference:preference-ktx:1.2.0")
-    //SmartRefreshLayout
     implementation("io.github.scwang90:refresh-layout-kernel:3.0.0-alpha")
     implementation("io.github.scwang90:refresh-header-classics:3.0.0-alpha")
-
     implementation("com.google.zxing:core:3.3.3")
-    //微信sdk
     implementation("com.tencent.mm.opensdk:wechat-sdk-android:6.8.34")
-
 }
-
