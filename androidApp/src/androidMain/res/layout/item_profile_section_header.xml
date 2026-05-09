@@ -3,23 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/modern_background">
+    android:background="@color/modern_background"
+    android:clickable="true"
+    android:focusable="true">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
-    <TextView
-        android:id="@+id/tv_section_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Section Title"
-        android:textSize="13sp"
-        android:textColor="@color/modern_on_surface_variant"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:paddingBottom="12dp"
-        android:textStyle="normal"
-        android:textAllCaps="false" />
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/tv_section_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Section Title"
+            android:textSize="13sp"
+            android:textColor="@color/modern_on_surface_variant"
+            android:textStyle="normal"
+            android:textAllCaps="false" />
+
+        <ImageView
+            android:id="@+id/iv_expand_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_chevron_right_24"
+            android:tint="@color/modern_on_surface_variant"
+            android:contentDescription="@null" />
+
+    </LinearLayout>
 
 </LinearLayout>

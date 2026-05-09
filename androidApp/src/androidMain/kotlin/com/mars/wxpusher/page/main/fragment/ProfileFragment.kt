@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -61,6 +62,7 @@ class ProfileFragment : WxpBaseFragment() {
             ProfileSection(
                 title = "设备和账号",
                 isExpandable = true,
+                isExpanded = true,
                 items = listOf(
                     ProfileItem(title = "UID", subtitle = if (uid.isEmpty()) "未登录" else uid, hasArrow = true) {
                         copyToClipboard(uid, "UID复制成功")
@@ -84,6 +86,7 @@ class ProfileFragment : WxpBaseFragment() {
             ProfileSection(
                 title = "通知管理",
                 isExpandable = true,
+                isExpanded = true,
                 items = listOf(
                     ProfileItem(title = "通知设置", subtitle = "检查通知权限", hasArrow = true) {
                         checkNotificationPermission()
@@ -97,6 +100,8 @@ class ProfileFragment : WxpBaseFragment() {
         sectionData.add(
             ProfileSection(
                 title = "通用",
+                isExpandable = false,
+                isExpanded = true,
                 items = listOf(
                     ProfileItem(title = "主题设置", subtitle = "颜色和深色模式", hasArrow = true) {
                         WxpJumpPageUtils.jumpToThemeSettings(requireActivity())
@@ -132,6 +137,7 @@ class ProfileFragment : WxpBaseFragment() {
     data class ProfileSection(
         val title: String,
         val isExpandable: Boolean = false,
+        val isExpanded: Boolean = true,
         val items: List<ProfileItem>
     )
 
@@ -153,11 +159,23 @@ class ProfileFragment : WxpBaseFragment() {
         }
 
         private val items = mutableListOf<Any>()
+        private val expandedStates = mutableMapOf<String, Boolean>()
 
         fun setData(sections: List<ProfileSection>) {
+            expandedStates.clear()
+            sections.forEach { section ->
+                expandedStates[section.title] = section.isExpanded
+            }
+            rebuildItems(sections)
+        }
+
+        private fun rebuildItems(sections: List<ProfileSection>) {
             items.clear()
             sections.forEach { section ->
                 items.add(section)
+                if (expandedStates[section.title] == true) {
+                    items.addAll(section.items)
+                }
             }
         }
 
@@ -187,7 +205,7 @@ class ProfileFragment : WxpBaseFragment() {
             when (holder) {
                 is SectionHeaderViewHolder -> {
                     val section = items[position] as ProfileSection
-                    holder.bind(section)
+                    holder.bind(section, position)
                 }
                 is ItemViewHolder -> {
                     val item = items[position] as ProfileItem
@@ -205,11 +223,45 @@ class ProfileFragment : WxpBaseFragment() {
 
         override fun getItemCount(): Int = items.size
 
-        private class SectionHeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            private val titleTextView: TextView = itemView.findViewById(R.id.tv_section_title)
+        private fun rotateExpandIcon(imageView: ImageView, isExpanded: Boolean) {
+            val fromAngle = if (isExpanded) 0f else 90f
+            val toAngle = if (isExpanded) 90f else 0f
+            val rotateAnimation = RotateAnimation(fromAngle, toAngle, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f)
+            rotateAnimation.duration = 200
+            rotateAnimation.fillAfter = true
+            imageView.startAnimation(rotateAnimation)
+        }
 
-            fun bind(section: ProfileSection) {
+        private inner class SectionHeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            private val titleTextView: TextView = itemView.findViewById(R.id.tv_section_title)
+            private val expandIcon: ImageView = itemView.findViewById(R.id.iv_expand_icon)
+
+            fun bind(section: ProfileSection, position: Int) {
                 titleTextView.text = section.title
+
+                if (section.isExpandable) {
+                    expandIcon.visibility = View.VISIBLE
+                    val isExpanded = expandedStates[section.title] == true
+                    expandIcon.rotation = if (isExpanded) 90f else 0f
+
+                    itemView.setOnClickListener {
+                        val currentState = expandedStates[section.title] ?: true
+                        val newState = !currentState
+                        expandedStates[section.title] = newState
+
+                        val sections = mutableListOf<ProfileSection>()
+                        items.forEach { item ->
+                            if (item is ProfileSection) {
+                                sections.add(item)
+                            }
+                        }
+                        rebuildItems(sections)
+                        notifyDataSetChanged()
+                    }
+                } else {
+                    expandIcon.visibility = View.GONE
+                    itemView.setOnClickListener(null)
+                }
             }
         }
 
