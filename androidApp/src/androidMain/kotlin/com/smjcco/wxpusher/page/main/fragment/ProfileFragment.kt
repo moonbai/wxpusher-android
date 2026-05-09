@@ -137,6 +137,13 @@ class ProfileFragment : WxpBaseFragment() {
                 title = "通用",
                 items = listOf(
                     ProfileItem(
+                        title = "主题设置",
+                        subtitle = "颜色和深色模式",
+                        hasArrow = true
+                    ) {
+                        WxpJumpPageUtils.jumpToThemeSettings(requireActivity())
+                    },
+                    ProfileItem(
                         title = "用户协议",
                         subtitle = "查看用户和隐私协议",
                         hasArrow = true
@@ -205,15 +212,26 @@ class ProfileFragment : WxpBaseFragment() {
         WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
     }
 
-    private fun openUserAgreementUrl() {
-        WxpJumpPageUtils.jumpToWebUrl(WxpConstants.PrivacyUrl, requireActivity())
-    }
-
+<<<<<<< HEAD
+=======
     private fun openGitHubIssues() {
         val url = "https://github.com/moonbai/wxpusher-android/issues"
         WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
     }
 
+>>>>>>> a9b0e53 (feat: add theme settings with color picker and dark mode support)
+    private fun openUserAgreementUrl() {
+        WxpJumpPageUtils.jumpToWebUrl(WxpConstants.PrivacyUrl, requireActivity())
+    }
+
+<<<<<<< HEAD
+    private fun openGitHubIssues() {
+        val url = "https://github.com/moonbai/wxpusher-android/issues"
+        WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
+    }
+
+=======
+>>>>>>> a9b0e53 (feat: add theme settings with color picker and dark mode support)
     // 数据模型类
     data class ProfileSection(
         val title: String,

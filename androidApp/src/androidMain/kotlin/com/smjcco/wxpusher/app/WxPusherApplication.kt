@@ -7,6 +7,7 @@ import com.smjcco.wxpusher.base.biz.WxpAppDataService
 import com.smjcco.wxpusher.base.biz.WxpAppPageService
 import com.smjcco.wxpusher.base.common.ApplicationUtils
 import com.smjcco.wxpusher.base.common.WxpBaseInfoService
+import com.smjcco.wxpusher.page.theme.ThemeManager
 import com.smjcco.wxpusher.base.common.WxpLogUtils
 import com.smjcco.wxpusher.base.common.WxpLoadingUtils
 import com.smjcco.wxpusher.base.common.WxpSaveService
@@ -31,6 +32,9 @@ class WxPusherApplication : Application() {
         WxpLogUtils.i(TAG, "应用启动")
         //初始化一些配置和环境信息
         WxpConfig.init()
+
+        // 初始化主题管理
+        ThemeManager.init(this)
 
         //初始化页面跳转
         WxpAppPageService.init(WxpAppPageServiceImpl())
