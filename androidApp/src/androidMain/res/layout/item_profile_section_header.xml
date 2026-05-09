@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/miuix_theme_color">
+    android:background="@color/modern_background">
 
     <View
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Section Title"
         android:textSize="13sp"
-        android:textColor="@color/miuix_summary_color"
+        android:textColor="@color/modern_on_surface_variant"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingBottom="12dp"

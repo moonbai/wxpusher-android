@@ -25,7 +25,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="标题"
-            android:textColor="@color/miuix_title_color"
+            android:textColor="@color/modern_on_surface"
             android:textSize="16sp" />
 
         <TextView
@@ -38,7 +38,7 @@
             android:gravity="end"
             android:maxLines="1"
             android:text="副标题"
-            android:textColor="@color/miuix_summary_color"
+            android:textColor="@color/modern_on_surface_variant"
             android:textSize="14sp" />
 
         <ImageView
@@ -48,7 +48,7 @@
             android:layout_marginStart="8dp"
             android:contentDescription="@null"
             android:src="@drawable/ic_chevron_right_24"
-            android:tint="@color/miuix_summary_color"
+            android:tint="@color/modern_on_surface_variant"
             android:visibility="gone" />
 
     </LinearLayout>
@@ -58,7 +58,6 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginStart="16dp"
-        android:alpha="0.2"
-        android:background="@color/miuix_edit_border" />
+        android:background="@color/modern_outline" />
 
 </LinearLayout>
