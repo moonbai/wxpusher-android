@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.smjcco.wxpusher.R
+import com.smjcco.wxpusher.WxpConfig
 import com.smjcco.wxpusher.base.WxpBaseFragment
 import com.smjcco.wxpusher.base.biz.WxpAppDataService
 import com.smjcco.wxpusher.base.common.WxpDialogParams
