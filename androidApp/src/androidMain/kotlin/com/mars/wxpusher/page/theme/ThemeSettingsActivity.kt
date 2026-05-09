@@ -37,6 +37,7 @@ class ThemeSettingsActivity : WxpBaseActivity() {
         setContentView(R.layout.activity_theme_settings)
 
         initViews()
+        applyThemeColors()
         setupToolbar()
         setupThemeColors()
         setupDarkModeOptions()
@@ -52,6 +53,14 @@ class ThemeSettingsActivity : WxpBaseActivity() {
         rbLight = findViewById(R.id.rbLight)
         rbDark = findViewById(R.id.rbDark)
         rbSystem = findViewById(R.id.rbSystem)
+    }
+
+    private fun applyThemeColors() {
+        val color = ThemeManager.getThemeColor(this)
+        toolbar.setBackgroundColor(color)
+        rbLight.buttonTintList = android.content.res.ColorStateList.valueOf(color)
+        rbDark.buttonTintList = android.content.res.ColorStateList.valueOf(color)
+        rbSystem.buttonTintList = android.content.res.ColorStateList.valueOf(color)
     }
 
     private fun setupToolbar() {
@@ -74,7 +83,7 @@ class ThemeSettingsActivity : WxpBaseActivity() {
 
         themeColorAdapter = ThemeColorAdapter(colors) { color ->
             ThemeManager.setThemeColor(this, color)
-            recreate()
+            applyThemeColors()
         }
 
         rvThemeColors.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
