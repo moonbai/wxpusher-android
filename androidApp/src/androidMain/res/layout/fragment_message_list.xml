@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/modern_background">
+    android:layout_height="match_parent">
 
+    <!-- 多选模式顶部操作栏，替换 ActionMode 以获得一致的视觉风格 -->
     <LinearLayout
         android:id="@+id/batch_top_bar"
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTop_of="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -70,6 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/batch_top_bar">
+
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/battery_banner"
