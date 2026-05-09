@@ -106,19 +106,9 @@ android {
 
     buildTypes {
         getByName("release") {
-            // 关闭混淆 & 关闭资源压缩
             isMinifyEnabled = false
             isShrinkResources = false
-            // 禁用混淆配置文件
-            // proguardFiles(
-            //     getDefaultProguardFile("proguard-android-optimize.txt"),
-            //     "proguard-rules.pro"
-            // )
-            signingConfig = try {
-                signingConfigs.getByName("release")
-            } catch (_: UnknownDomainObjectException) {
-                signingConfigs.getByName("debug")
-            }
+            signingConfig = signingConfigs.getByName("debug")
         }
         getByName("debug") {
             signingConfig = signingConfigs.getByName("debug")
