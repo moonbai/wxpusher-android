@@ -10,10 +10,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/modern_primary"
+        android:background="@color/modern_surface"
         app:navigationIcon="@drawable/ic_back"
         app:title="主题设置"
-        app:titleTextColor="@color/modern_on_primary" />
+        app:titleTextColor="@color/miuix_title_color" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,18 +26,16 @@
             android:paddingTop="8dp">
 
             <TextView
-                android:id="@+id/sectionTitle1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="16dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="8dp"
                 android:text="主题颜色"
-                android:textColor="@color/modern_on_surface_variant"
+                android:textColor="@color/miuix_summary_color"
                 android:textSize="13sp" />
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/colorsCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -56,18 +54,16 @@
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
-                android:id="@+id/sectionTitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="16dp"
                 android:paddingTop="24dp"
                 android:paddingBottom="8dp"
                 android:text="深色模式"
-                android:textColor="@color/modern_on_surface_variant"
+                android:textColor="@color/miuix_summary_color"
                 android:textSize="13sp" />
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/darkModeCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -95,20 +91,18 @@
                         android:paddingHorizontal="16dp">
 
                         <ImageView
-                            android:id="@+id/modeIcon"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_light_mode"
-                            app:tint="@color/modern_on_surface" />
+                            app:tint="@color/miuix_title_color" />
 
                         <TextView
-                            android:id="@+id/modeText"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_weight="1"
                             android:text="浅色模式"
-                            android:textColor="@color/modern_on_surface"
+                            android:textColor="@color/miuix_title_color"
                             android:textSize="16sp" />
 
                         <RadioButton
@@ -125,7 +119,7 @@
                         android:layout_height="0.5dp"
                         android:layout_marginStart="56dp"
                         android:alpha="0.2"
-                        android:background="@color/modern_outline" />
+                        android:background="@color/Divider" />
 
                     <LinearLayout
                         android:id="@+id/modeDark"
@@ -139,20 +133,18 @@
                         android:paddingHorizontal="16dp">
 
                         <ImageView
-                            android:id="@+id/modeIcon"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_dark_mode"
-                            app:tint="@color/modern_on_surface" />
+                            app:tint="@color/miuix_title_color" />
 
                         <TextView
-                            android:id="@+id/modeText"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_weight="1"
                             android:text="深色模式"
-                            android:textColor="@color/modern_on_surface"
+                            android:textColor="@color/miuix_title_color"
                             android:textSize="16sp" />
 
                         <RadioButton
@@ -169,7 +161,7 @@
                         android:layout_height="0.5dp"
                         android:layout_marginStart="56dp"
                         android:alpha="0.2"
-                        android:background="@color/modern_outline" />
+                        android:background="@color/Divider" />
 
                     <LinearLayout
                         android:id="@+id/modeSystem"
@@ -183,20 +175,18 @@
                         android:paddingHorizontal="16dp">
 
                         <ImageView
-                            android:id="@+id/modeIcon"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_auto_mode"
-                            app:tint="@color/modern_on_surface" />
+                            app:tint="@color/miuix_title_color" />
 
                         <TextView
-                            android:id="@+id/modeText"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_weight="1"
                             android:text="跟随系统"
-                            android:textColor="@color/modern_on_surface"
+                            android:textColor="@color/miuix_title_color"
                             android:textSize="16sp" />
 
                         <RadioButton
