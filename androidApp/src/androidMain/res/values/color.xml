@@ -59,4 +59,14 @@
     <color name="miuix_dialog_button_2">#B300B3</color>
     <color name="miuix_item_choose_text">#B300B3</color>
     <color name="miuix_item_choose_background">#F5E6F5</color>
+
+    <!-- Modern UI Theme Colors -->
+    <color name="modern_primary">#0088FF</color>
+    <color name="modern_on_primary">#FFFFFF</color>
+    <color name="modern_surface">#FFFFFF</color>
+    <color name="modern_on_surface">#1C1C1E</color>
+    <color name="modern_surface_variant">#F2F2F7</color>
+    <color name="modern_outline">#E5E5EA</color>
+    <color name="modern_background">#FFFFFF</color>
+    <color name="modern_on_background">#1C1C1E</color>
 </resources>

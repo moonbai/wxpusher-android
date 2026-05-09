@@ -31,4 +31,14 @@
     <color name="input_border_valid">#4CAF50</color>
     <color name="input_border_invalid">#F44336</color>
 
+    <!-- Modern UI Theme Colors -->
+    <color name="modern_primary">#0088FF</color>
+    <color name="modern_on_primary">#FFFFFF</color>
+    <color name="modern_surface">#1C1C1E</color>
+    <color name="modern_on_surface">#FFFFFF</color>
+    <color name="modern_surface_variant">#2C2C2E</color>
+    <color name="modern_outline">#3A3A3C</color>
+    <color name="modern_background">#121212</color>
+    <color name="modern_on_background">#FFFFFF</color>
+
 </resources>
