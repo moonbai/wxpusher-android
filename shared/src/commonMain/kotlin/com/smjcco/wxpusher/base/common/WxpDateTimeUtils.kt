@@ -1,9 +1,5 @@
 package com.smjcco.wxpusher.base.common
 
-import kotlin.math.abs
-import kotlin.time.Clock
-import kotlin.time.ExperimentalTime
-
 expect fun Double.toDateTimeString(): String
 
 expect fun Long.toDate(): String
@@ -13,10 +9,9 @@ fun Long.toDateTimeString(): String {
 }
 
 object WxpDateTimeUtils {
-    @OptIn(ExperimentalTime::class)
     fun getRelativeDateTime(timeStamp: Double): String {
-        val nowInSeconds = Clock.System.now().toEpochMilliseconds()
-        val duration = (abs(nowInSeconds - timeStamp) / 1000).toInt()
+        val nowInSeconds = System.currentTimeMillis()
+        val duration = kotlin.math.abs((nowInSeconds - timeStamp) / 1000).toInt()
         return when {
             duration < 60 -> "刚刚"
             duration < 3600 -> "${duration / 60}分钟前"
@@ -32,20 +27,16 @@ object WxpDateTimeUtils {
         return timeStamp.toDateTimeString()
     }
 
-    @OptIn(ExperimentalTime::class)
     fun getDate(): String {
-        val nowInSeconds = Clock.System.now().toEpochMilliseconds()
+        val nowInSeconds = System.currentTimeMillis()
         return nowInSeconds.toDate()
     }
 
-    @OptIn(ExperimentalTime::class)
     fun getDateTime(): String {
-        val nowInSeconds = Clock.System.now().toEpochMilliseconds()
+        val nowInSeconds = System.currentTimeMillis()
         return nowInSeconds.toDateTimeString()
     }
 
-
-    @OptIn(ExperimentalTime::class)
-    fun getTimestamp(): Long = Clock.System.now().toEpochMilliseconds()
+    fun getTimestamp(): Long = System.currentTimeMillis()
 
 }
