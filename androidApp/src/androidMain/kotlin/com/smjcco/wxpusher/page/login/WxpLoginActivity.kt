@@ -6,13 +6,10 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
-import android.view.View
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
 import com.hchen.himiuix.widget.MiuixCheckBox
 import com.hchen.himiuix.widget.MiuixEditText
-import com.smjcco.wxpusher.BuildConfig
 import com.smjcco.wxpusher.R
 import com.smjcco.wxpusher.base.WxpBaseMvpActivity
 import com.smjcco.wxpusher.base.common.WxpDialogParams
@@ -38,14 +35,6 @@ class WxpLoginActivity : WxpBaseMvpActivity<IWxpLoginPresenter>(), IWxpLoginView
         setupPrivacyLabel()
 
         presenter.init()
-
-        //测试包，添加进入测试面板入口
-        if (!BuildConfig.online) {
-            val titleView = findViewById<View>(R.id.title_label)
-            titleView.setOnClickListener {
-                WxpJumpPageUtils.jumpToTestPanel(this)
-            }
-        }
     }
 
     private fun initViews() {
