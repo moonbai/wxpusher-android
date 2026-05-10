@@ -70,4 +70,7 @@
     <color name="modern_outline">#E5E5EA</color>
     <color name="modern_background">#FFFFFF</color>
     <color name="modern_on_background">#1C1C1E</color>
+
+    <!-- About page colors -->
+    <color name="about_card_background">#FFFFFF</color>
 </resources>
