@@ -88,6 +88,9 @@ class ProfileFragment : WxpBaseFragment() {
                 isExpandable = true,
                 isExpanded = true,
                 items = listOf(
+                    ProfileItem(title = "订阅管理", subtitle = "管理我的订阅", hasArrow = true) {
+                        openSubscribeManagerPage()
+                    },
                     ProfileItem(title = "通知设置", subtitle = "检查通知权限", hasArrow = true) {
                         checkNotificationPermission()
                     },
@@ -134,6 +137,17 @@ class ProfileFragment : WxpBaseFragment() {
 
     private fun openPushCheckUrl() {
         val url = "https://wxpusher.zjiecode.com/docs/open-app-note/index.html?brand=Android"
+        WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
+    }
+
+    private fun openSubscribeManagerPage() {
+        val loginInfo = WxpAppDataService.getLoginInfo()
+        val openId = loginInfo?.openId
+        if (openId.isNullOrEmpty()) {
+            WxpToastUtils.showToast("请先登录")
+            return
+        }
+        val url = "${WxpConfig.baseUrl}/wxuser/?openId=${openId}#/"
         WxpJumpPageUtils.jumpToWebUrl(url, requireActivity())
     }
 
