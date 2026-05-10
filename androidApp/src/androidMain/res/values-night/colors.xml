@@ -42,4 +42,7 @@
     <color name="modern_background">#121212</color>
     <color name="modern_on_background">#FFFFFF</color>
 
+    <!-- About page colors for dark mode -->
+    <color name="about_card_background">#2C2C2E</color>
+
 </resources>

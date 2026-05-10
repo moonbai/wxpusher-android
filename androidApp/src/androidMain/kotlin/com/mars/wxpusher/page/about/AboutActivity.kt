@@ -3,15 +3,11 @@ package com.mars.wxpusher.page.about
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import com.google.android.material.card.MaterialCardView
 import com.mars.wxpusher.BuildConfig
 import com.mars.wxpusher.R
 import com.mars.wxpusher.base.WxpBaseActivity
-import com.mars.wxpusher.page.theme.ThemeManager
 import com.mars.wxpusher.utils.WxpJumpPageUtils
 
 class AboutActivity : WxpBaseActivity() {
@@ -20,7 +16,6 @@ class AboutActivity : WxpBaseActivity() {
     private lateinit var cardSourceCode: MaterialCardView
     private lateinit var cardOfficialSite: MaterialCardView
     private lateinit var cardFeedback: MaterialCardView
-    private lateinit var rootLayout: LinearLayout
 
     companion object {
         fun start(context: Context) {
@@ -35,24 +30,8 @@ class AboutActivity : WxpBaseActivity() {
         supportActionBar?.hide()
 
         initViews()
-        applyThemeColors()
         setupData()
         setupClickListeners()
-    }
-
-    override fun applyThemeColors() {
-        val color = ThemeManager.getThemeColor(this)
-        val isDarkMode = (resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK) == android.content.res.Configuration.UI_MODE_NIGHT_YES
-        
-        if (isDarkMode) {
-            rootLayout.setBackgroundColor(getColor(R.color.dark_bg))
-        } else {
-            rootLayout.setBackgroundColor(color)
-        }
-        
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = if (isDarkMode) getColor(R.color.LightStatusBarColor) else color
-        }
     }
 
     private fun initViews() {
@@ -60,7 +39,6 @@ class AboutActivity : WxpBaseActivity() {
         cardSourceCode = findViewById(R.id.cardSourceCode)
         cardOfficialSite = findViewById(R.id.cardOfficialSite)
         cardFeedback = findViewById(R.id.cardFeedback)
-        rootLayout = (window.decorView.findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as LinearLayout
     }
 
     private fun setupData() {
