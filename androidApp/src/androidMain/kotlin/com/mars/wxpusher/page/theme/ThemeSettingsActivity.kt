@@ -38,7 +38,6 @@ class ThemeSettingsActivity : WxpBaseActivity() {
         supportActionBar?.hide()
 
         initViews()
-        applyThemeColors()
         setupToolbar()
         setupThemeColors()
         setupDarkModeOptions()
@@ -56,7 +55,7 @@ class ThemeSettingsActivity : WxpBaseActivity() {
         rbSystem = findViewById(R.id.rbSystem)
     }
 
-    private fun applyThemeColors() {
+    override fun applyThemeColors() {
         val color = ThemeManager.getThemeColor(this)
         toolbar.setBackgroundColor(color)
         rbLight.buttonTintList = android.content.res.ColorStateList.valueOf(color)

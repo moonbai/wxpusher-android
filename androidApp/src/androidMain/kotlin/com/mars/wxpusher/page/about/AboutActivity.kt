@@ -3,6 +3,8 @@ package com.mars.wxpusher.page.about
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.google.android.material.card.MaterialCardView
@@ -33,6 +35,7 @@ class AboutActivity : WxpBaseActivity() {
         supportActionBar?.hide()
 
         initViews()
+        applyThemeColors()
         setupData()
         setupClickListeners()
     }
@@ -50,7 +53,7 @@ class AboutActivity : WxpBaseActivity() {
         cardSourceCode = findViewById(R.id.cardSourceCode)
         cardOfficialSite = findViewById(R.id.cardOfficialSite)
         cardFeedback = findViewById(R.id.cardFeedback)
-        rootLayout = findViewById(android.R.id.content).getChildAt(0) as LinearLayout
+        rootLayout = (window.decorView.findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as LinearLayout
     }
 
     private fun setupData() {
