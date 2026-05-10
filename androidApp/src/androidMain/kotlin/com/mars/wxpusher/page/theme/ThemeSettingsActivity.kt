@@ -35,6 +35,7 @@ class ThemeSettingsActivity : WxpBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_settings)
+        supportActionBar?.hide()
 
         initViews()
         applyThemeColors()
