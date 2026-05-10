@@ -25,6 +25,7 @@ import com.mars.wxpusher.page.main.fragment.ITabMenuProvider
 import com.mars.wxpusher.page.main.fragment.MessageListFragment
 import com.mars.wxpusher.page.main.fragment.ProfileFragment
 import com.mars.wxpusher.page.main.fragment.WxpProviderListFragment
+import com.mars.wxpusher.page.theme.ThemeManager
 import com.mars.wxpusher.push.PushManager
 import com.mars.wxpusher.push.ws.keepalive.KeepWsAliveServiceStarter
 import com.mars.wxpusher.utils.PermissionRequester
@@ -270,11 +271,27 @@ class WxpMainActivity : WxpBaseActivity(), CurrentTabProvider {
 
     override fun onResume() {
         super.onResume()
+        applyThemeColors()
         PushManager.showOpenNoteRemindSettingDialog(this)
         //显示首页的时候，尝试启动一次保活服务
         KeepWsAliveServiceStarter.start(this)
         //版本升级检测（内部有 3 小时节流；冷启、后台切前台都会触发）
         WxpVersionCheckManager.onAppForeground()
+    }
+    
+    private fun applyThemeColors() {
+        val color = ThemeManager.getThemeColor(this)
+        supportActionBar?.let {
+            try {
+                it.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(color))
+            } catch (e: Exception) {
+                // 忽略异常
+            }
+        }
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = color
+        }
+        tabLayout.setSelectedTabIndicatorColor(color)
     }
 
     override fun onPause() {
