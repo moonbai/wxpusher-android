@@ -42,9 +42,16 @@ class AboutActivity : WxpBaseActivity() {
 
     override fun applyThemeColors() {
         val color = ThemeManager.getThemeColor(this)
-        rootLayout.setBackgroundColor(color)
+        val isDarkMode = (resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK) == android.content.res.Configuration.UI_MODE_NIGHT_YES
+        
+        if (isDarkMode) {
+            rootLayout.setBackgroundColor(getColor(R.color.dark_bg))
+        } else {
+            rootLayout.setBackgroundColor(color)
+        }
+        
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = color
+            window.statusBarColor = if (isDarkMode) getColor(R.color.LightStatusBarColor) else color
         }
     }
 
