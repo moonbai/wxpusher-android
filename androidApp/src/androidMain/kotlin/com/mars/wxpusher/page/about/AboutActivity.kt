@@ -33,14 +33,16 @@ class AboutActivity : WxpBaseActivity() {
         supportActionBar?.hide()
 
         initViews()
-        applyThemeColors()
         setupData()
         setupClickListeners()
     }
-    
-    override fun onResume() {
-        super.onResume()
-        applyThemeColors()
+
+    override fun applyThemeColors() {
+        val color = ThemeManager.getThemeColor(this)
+        rootLayout.setBackgroundColor(color)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = color
+        }
     }
 
     private fun initViews() {
@@ -49,14 +51,6 @@ class AboutActivity : WxpBaseActivity() {
         cardOfficialSite = findViewById(R.id.cardOfficialSite)
         cardFeedback = findViewById(R.id.cardFeedback)
         rootLayout = findViewById(android.R.id.content).getChildAt(0) as LinearLayout
-    }
-    
-    private fun applyThemeColors() {
-        val color = ThemeManager.getThemeColor(this)
-        rootLayout.setBackgroundColor(color)
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = color
-        }
     }
 
     private fun setupData() {

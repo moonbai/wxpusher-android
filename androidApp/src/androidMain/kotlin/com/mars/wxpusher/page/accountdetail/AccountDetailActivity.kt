@@ -15,7 +15,6 @@ import com.mars.wxpusher.base.WxpBaseMvpActivity
 import com.mars.wxpusher.base.biz.WxpAppDataService
 import com.mars.wxpusher.base.common.WxpMaskUtils
 import com.mars.wxpusher.base.common.WxpToastUtils
-import com.mars.wxpusher.page.theme.ThemeManager
 import com.mars.wxpusher.utils.WxpJumpPageUtils
 import com.mars.wxpusher.wxapi.WxpWeixinOpenManager
 
@@ -35,7 +34,6 @@ class AccountDetailActivity : WxpBaseMvpActivity<WxpAccountDetailPresenter>(),
         setContentView(R.layout.activity_account_detail)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = "账号信息"
-        applyThemeColors()
 
         initViews()
         setupData()
@@ -43,23 +41,7 @@ class AccountDetailActivity : WxpBaseMvpActivity<WxpAccountDetailPresenter>(),
 
     override fun onResume() {
         super.onResume()
-        // Refresh data when returning from other pages (e.g. change phone)
         setupData()
-        applyThemeColors()
-    }
-    
-    private fun applyThemeColors() {
-        val color = ThemeManager.getThemeColor(this)
-        supportActionBar?.let {
-            try {
-                it.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(color))
-            } catch (e: Exception) {
-                // 忽略异常
-            }
-        }
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = color
-        }
     }
 
     private fun initViews() {

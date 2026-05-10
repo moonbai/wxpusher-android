@@ -279,19 +279,9 @@ class WxpMainActivity : WxpBaseActivity(), CurrentTabProvider {
         WxpVersionCheckManager.onAppForeground()
     }
     
-    private fun applyThemeColors() {
-        val color = ThemeManager.getThemeColor(this)
-        supportActionBar?.let {
-            try {
-                it.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(color))
-            } catch (e: Exception) {
-                // 忽略异常
-            }
-        }
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = color
-        }
-        tabLayout.setSelectedTabIndicatorColor(color)
+    override fun applyThemeColors() {
+        super.applyThemeColors()
+        tabLayout.setSelectedTabIndicatorColor(ThemeManager.getThemeColor(this))
     }
 
     override fun onPause() {
